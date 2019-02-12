@@ -1,0 +1,28 @@
+
+namespace App.PacketMessage.Hero
+{
+    /**
+     * Created by FreeMarker. DO NOT EDIT!!!
+     * 武将觉醒
+     */
+    public class ResHeroJueXingPacketMessage : Network.PacketMessage
+    {
+        /** 武将唯一ID */
+        public int heroUID{ get; set; }
+
+        public override void Write(System.IO.BinaryWriter writer)
+        {
+            WriteInt(writer, this.heroUID);
+        }
+
+        public override void Read(System.IO.BinaryReader reader)
+        {
+            this.heroUID = ReadInt(reader);
+        }
+
+      public override int Id
+      {
+        get { return 352; }
+      }
+    }
+}
