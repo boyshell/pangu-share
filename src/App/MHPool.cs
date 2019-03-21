@@ -5,7 +5,7 @@ namespace App
 {
     public class MHPool
     {
-        public const string VERSION = "ea8fff260b74ccc6bbf36dc9e1ab4e53";
+        public const string VERSION = "c4e7a40544e9618f48c5524389cd7087";
         private static readonly MHPool instance = new MHPool();
 
         public static MHPool GetInstance()

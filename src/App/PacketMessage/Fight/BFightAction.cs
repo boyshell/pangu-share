@@ -14,12 +14,12 @@ namespace App.PacketMessage.Fight
 
         /** 行为者唯一ID(0表示无行为者,负数则表示建筑类型) */
         public int heroUID{ get; set; }
-        /** 移除的buff(uid) */
-        public System.Collections.Generic.List<int> removedBuffs{ get; set; } = new System.Collections.Generic.List<int>();
+        /** 移除的buff */
+        public System.Collections.Generic.List<BFightBuffRemove> removedBuffs{ get; set; } = new System.Collections.Generic.List<BFightBuffRemove>();
         /** buff行为 */
-        public System.Collections.Generic.List<BFightActionBuffTick> buffActions{ get; set; } = new System.Collections.Generic.List<BFightActionBuffTick>();
+        public System.Collections.Generic.List<BFightBuffTrigger> tirggerBuffs{ get; set; } = new System.Collections.Generic.List<BFightBuffTrigger>();
         /** 技能行为 */
-        public System.Collections.Generic.List<BFightActionSkill> skillActions{ get; set; } = new System.Collections.Generic.List<BFightActionSkill>();
+        public System.Collections.Generic.List<BFightSkill> skills{ get; set; } = new System.Collections.Generic.List<BFightSkill>();
 
         public override void Write(System.IO.BinaryWriter writer)
         {
@@ -27,17 +27,17 @@ namespace App.PacketMessage.Fight
             WriteInt(writer, this.removedBuffs.Count);
             for (int t52413035 = 0; t52413035 < this.removedBuffs.Count; ++t52413035)
             {
-                WriteInt(writer, removedBuffs[t52413035]);
+                removedBuffs[t52413035].Write(writer);
             }
-            WriteInt(writer, this.buffActions.Count);
-            for (int t52413035 = 0; t52413035 < this.buffActions.Count; ++t52413035)
+            WriteInt(writer, this.tirggerBuffs.Count);
+            for (int t52413035 = 0; t52413035 < this.tirggerBuffs.Count; ++t52413035)
             {
-                buffActions[t52413035].Write(writer);
+                tirggerBuffs[t52413035].Write(writer);
             }
-            WriteInt(writer, this.skillActions.Count);
-            for (int t52413035 = 0; t52413035 < this.skillActions.Count; ++t52413035)
+            WriteInt(writer, this.skills.Count);
+            for (int t52413035 = 0; t52413035 < this.skills.Count; ++t52413035)
             {
-                skillActions[t52413035].Write(writer);
+                skills[t52413035].Write(writer);
             }
         }
 
@@ -46,26 +46,26 @@ namespace App.PacketMessage.Fight
             this.heroUID = ReadInt(reader);
             {
                 int size52413035 = ReadInt(reader);
-                this.removedBuffs = new System.Collections.Generic.List<int>();
+                this.removedBuffs = new System.Collections.Generic.List<BFightBuffRemove>();
                 for (int t52413035 = 0; t52413035 < size52413035; ++t52413035)
                 {
-                    this.removedBuffs.Add(ReadInt(reader));
+                    this.removedBuffs.Add(new BFightBuffRemove(reader));
                 }
             }
             {
                 int size52413035 = ReadInt(reader);
-                this.buffActions = new System.Collections.Generic.List<BFightActionBuffTick>();
+                this.tirggerBuffs = new System.Collections.Generic.List<BFightBuffTrigger>();
                 for (int t52413035 = 0; t52413035 < size52413035; ++t52413035)
                 {
-                    this.buffActions.Add(new BFightActionBuffTick(reader));
+                    this.tirggerBuffs.Add(new BFightBuffTrigger(reader));
                 }
             }
             {
                 int size52413035 = ReadInt(reader);
-                this.skillActions = new System.Collections.Generic.List<BFightActionSkill>();
+                this.skills = new System.Collections.Generic.List<BFightSkill>();
                 for (int t52413035 = 0; t52413035 < size52413035; ++t52413035)
                 {
-                    this.skillActions.Add(new BFightActionSkill(reader));
+                    this.skills.Add(new BFightSkill(reader));
                 }
             }
         }

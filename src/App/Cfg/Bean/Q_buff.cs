@@ -17,6 +17,12 @@ namespace App.Cfg.Bean
         public string q_param { get; }
         /** 名字 */
         public String q_name { get; }
+        /**  */
+        public string q_add_str { get; }
+        /**  */
+        public string q_effect_str { get; }
+        /**  */
+        public string q_trigger_str { get; }
 
         private Q_buff(BinaryReader reader)
         {
@@ -24,6 +30,9 @@ namespace App.Cfg.Bean
             this.q_type = ReadInt(reader);
             this.q_param = ReadString(reader);
             this.q_name = ReadString(reader);
+            this.q_add_str = ReadString(reader);
+            this.q_effect_str = ReadString(reader);
+            this.q_trigger_str = ReadString(reader);
         }
 
         public static Q_buff[] Create(BinaryReader reader)

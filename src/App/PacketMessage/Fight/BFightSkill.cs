@@ -7,15 +7,15 @@ namespace App.PacketMessage.Fight
      * Created by FreeMarker. DO NOT EDIT!!!
      * 使用技能
      */
-    public class BFightActionSkill : Bean {
+    public class BFightSkill : Bean {
 
-        public BFightActionSkill() {}
-        public BFightActionSkill(System.IO.BinaryReader reader) => Read(reader);
+        public BFightSkill() {}
+        public BFightSkill(System.IO.BinaryReader reader) => Read(reader);
 
-        /** 技能ID(0表示无技能) */
+        /** 技能ID */
         public int skillID{ get; set; }
-        /** 技能目标 */
-        public System.Collections.Generic.List<BFightActionSkillTarget> targets{ get; set; } = new System.Collections.Generic.List<BFightActionSkillTarget>();
+        /** 技能目标(为空则表示开始准备) */
+        public System.Collections.Generic.List<BFightTarget> targets{ get; set; } = new System.Collections.Generic.List<BFightTarget>();
 
         public override void Write(System.IO.BinaryWriter writer)
         {
@@ -32,10 +32,10 @@ namespace App.PacketMessage.Fight
             this.skillID = ReadInt(reader);
             {
                 int size52413035 = ReadInt(reader);
-                this.targets = new System.Collections.Generic.List<BFightActionSkillTarget>();
+                this.targets = new System.Collections.Generic.List<BFightTarget>();
                 for (int t52413035 = 0; t52413035 < size52413035; ++t52413035)
                 {
-                    this.targets.Add(new BFightActionSkillTarget(reader));
+                    this.targets.Add(new BFightTarget(reader));
                 }
             }
         }
