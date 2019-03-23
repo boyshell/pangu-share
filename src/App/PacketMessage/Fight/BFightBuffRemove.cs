@@ -13,18 +13,22 @@ namespace App.PacketMessage.Fight
 
         /** 来源唯一ID(0表示无行为者,负数则表示建筑类型) */
         public int srcHeroUID{ get; set; }
+        /** 来源技能ID */
+        public int srcSkillID{ get; set; }
         /** BUFF */
         public int buffID{ get; set; }
 
         public override void Write(System.IO.BinaryWriter writer)
         {
             WriteInt(writer, this.srcHeroUID);
+            WriteInt(writer, this.srcSkillID);
             WriteInt(writer, this.buffID);
         }
 
         public override void Read(System.IO.BinaryReader reader)
         {
             this.srcHeroUID = ReadInt(reader);
+            this.srcSkillID = ReadInt(reader);
             this.buffID = ReadInt(reader);
         }
     }
