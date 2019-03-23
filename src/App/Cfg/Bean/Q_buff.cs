@@ -15,8 +15,6 @@ namespace App.Cfg.Bean
         public int q_type { get; }
         /** 参数 */
         public string q_param { get; }
-        /** 名字 */
-        public String q_name { get; }
         /**  */
         public string q_add_str { get; }
         /**  */
@@ -29,7 +27,6 @@ namespace App.Cfg.Bean
             this.q_id = ReadInt(reader);
             this.q_type = ReadInt(reader);
             this.q_param = ReadString(reader);
-            this.q_name = ReadString(reader);
             this.q_add_str = ReadString(reader);
             this.q_effect_str = ReadString(reader);
             this.q_trigger_str = ReadString(reader);
