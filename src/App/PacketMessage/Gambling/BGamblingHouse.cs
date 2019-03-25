@@ -14,17 +14,17 @@ namespace App.PacketMessage.Gambling
         /** 卡包ID */
         public int id{ get; set; }
         /** 参数列表,根据不同的卡包类型表示的意义不一样 */
-        public System.Collections.Generic.List<int> params{ get; set; } = new System.Collections.Generic.List<int>();
+        public System.Collections.Generic.List<int> vars{ get; set; } = new System.Collections.Generic.List<int>();
         /** 武将卡 */
         public System.Collections.Generic.List<int> heroIDs{ get; set; } = new System.Collections.Generic.List<int>();
 
         public override void Write(System.IO.BinaryWriter writer)
         {
             WriteInt(writer, this.id);
-            WriteInt(writer, this.params.Count);
-            for (int t52413035 = 0; t52413035 < this.params.Count; ++t52413035)
+            WriteInt(writer, this.vars.Count);
+            for (int t52413035 = 0; t52413035 < this.vars.Count; ++t52413035)
             {
-                WriteInt(writer, params[t52413035]);
+                WriteInt(writer, vars[t52413035]);
             }
             WriteInt(writer, this.heroIDs.Count);
             for (int t52413035 = 0; t52413035 < this.heroIDs.Count; ++t52413035)
@@ -38,10 +38,10 @@ namespace App.PacketMessage.Gambling
             this.id = ReadInt(reader);
             {
                 int size52413035 = ReadInt(reader);
-                this.params = new System.Collections.Generic.List<int>();
+                this.vars = new System.Collections.Generic.List<int>();
                 for (int t52413035 = 0; t52413035 < size52413035; ++t52413035)
                 {
-                    this.params.Add(ReadInt(reader));
+                    this.vars.Add(ReadInt(reader));
                 }
             }
             {
