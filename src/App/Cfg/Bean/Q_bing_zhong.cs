@@ -11,6 +11,8 @@ namespace App.Cfg.Bean
     {
         /** 兵种 */
         public int q_bing_zhong { get; }
+        /** 兵种图标 */
+        public string q_icon { get; }
         /** 兵种系列(兵种加成) */
         public int q_same_xi { get; }
         /** 兵种系列(技能学习) */
@@ -23,6 +25,7 @@ namespace App.Cfg.Bean
         private Q_bing_zhong(BinaryReader reader)
         {
             this.q_bing_zhong = ReadInt(reader);
+            this.q_icon = ReadString(reader);
             this.q_same_xi = ReadInt(reader);
             this.q_skill_xi = ReadString(reader);
             this.q_skills = ReadString(reader);
