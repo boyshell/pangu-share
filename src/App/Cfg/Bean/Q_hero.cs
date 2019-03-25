@@ -15,6 +15,8 @@ namespace App.Cfg.Bean
         public int q_team_id { get; }
         /** 武将名字 */
         public string q_name { get; }
+        /** 武将卡资源ID */
+        public int q_card { get; }
         /** 星 */
         public int q_star { get; }
         /** 国家(1魏2蜀3吴4汉5群) */
@@ -59,6 +61,7 @@ namespace App.Cfg.Bean
             this.q_id = ReadInt(reader);
             this.q_team_id = ReadInt(reader);
             this.q_name = ReadString(reader);
+            this.q_card = ReadInt(reader);
             this.q_star = ReadInt(reader);
             this.q_country = ReadInt(reader);
             this.q_bingzhong_default = ReadInt(reader);
