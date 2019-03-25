@@ -10,7 +10,7 @@ namespace App.Cfg.Container
     public class C_skill {
 
         private System.Collections.Generic.List<Q_skill> _list;
-        public System.Collections.Generic.List<Q_skill> System.Collections.Generic.List => _list;
+        public System.Collections.Generic.List<Q_skill> List => _list;
 
         private System.Collections.Generic.Dictionary<int, Q_skill> _dic;
         public System.Collections.Generic.Dictionary<int, Q_skill> Dic => _dic;

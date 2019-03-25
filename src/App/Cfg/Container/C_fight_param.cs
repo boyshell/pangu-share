@@ -10,7 +10,7 @@ namespace App.Cfg.Container
     public class C_fight_param {
 
         private System.Collections.Generic.List<Q_fight_param> _list;
-        public System.Collections.Generic.List<Q_fight_param> System.Collections.Generic.List => _list;
+        public System.Collections.Generic.List<Q_fight_param> List => _list;
 
         private System.Collections.Generic.Dictionary<int, Q_fight_param> _dic;
         public System.Collections.Generic.Dictionary<int, Q_fight_param> Dic => _dic;

@@ -10,7 +10,7 @@ namespace App.Cfg.Container
     public class C_team_cost {
 
         private System.Collections.Generic.List<Q_team_cost> _list;
-        public System.Collections.Generic.List<Q_team_cost> System.Collections.Generic.List => _list;
+        public System.Collections.Generic.List<Q_team_cost> List => _list;
 
         private System.Collections.Generic.Dictionary<int, Q_team_cost> _dic;
         public System.Collections.Generic.Dictionary<int, Q_team_cost> Dic => _dic;

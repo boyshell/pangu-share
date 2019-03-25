@@ -10,7 +10,7 @@ namespace App.Cfg.Container
     public class C_gambling_house {
 
         private System.Collections.Generic.List<Q_gambling_house> _list;
-        public System.Collections.Generic.List<Q_gambling_house> System.Collections.Generic.List => _list;
+        public System.Collections.Generic.List<Q_gambling_house> List => _list;
 
         private System.Collections.Generic.Dictionary<int, Q_gambling_house> _dic;
         public System.Collections.Generic.Dictionary<int, Q_gambling_house> Dic => _dic;

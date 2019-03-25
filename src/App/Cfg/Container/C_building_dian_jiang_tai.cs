@@ -10,7 +10,7 @@ namespace App.Cfg.Container
     public class C_building_dian_jiang_tai {
 
         private System.Collections.Generic.List<Q_building_dian_jiang_tai> _list;
-        public System.Collections.Generic.List<Q_building_dian_jiang_tai> System.Collections.Generic.List => _list;
+        public System.Collections.Generic.List<Q_building_dian_jiang_tai> List => _list;
 
         private System.Collections.Generic.Dictionary<int, Q_building_dian_jiang_tai> _dic;
         public System.Collections.Generic.Dictionary<int, Q_building_dian_jiang_tai> Dic => _dic;

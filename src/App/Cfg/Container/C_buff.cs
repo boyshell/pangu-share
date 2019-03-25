@@ -10,7 +10,7 @@ namespace App.Cfg.Container
     public class C_buff {
 
         private System.Collections.Generic.List<Q_buff> _list;
-        public System.Collections.Generic.List<Q_buff> System.Collections.Generic.List => _list;
+        public System.Collections.Generic.List<Q_buff> List => _list;
 
         private System.Collections.Generic.Dictionary<int, Q_buff> _dic;
         public System.Collections.Generic.Dictionary<int, Q_buff> Dic => _dic;

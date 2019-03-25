@@ -10,7 +10,7 @@ namespace App.Cfg.Container
     public class C_hero_combo {
 
         private System.Collections.Generic.List<Q_hero_combo> _list;
-        public System.Collections.Generic.List<Q_hero_combo> System.Collections.Generic.List => _list;
+        public System.Collections.Generic.List<Q_hero_combo> List => _list;
 
         private System.Collections.Generic.Dictionary<string, Q_hero_combo> _dic;
         public System.Collections.Generic.Dictionary<string, Q_hero_combo> Dic => _dic;

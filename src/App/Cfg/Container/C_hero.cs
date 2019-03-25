@@ -10,7 +10,7 @@ namespace App.Cfg.Container
     public class C_hero {
 
         private System.Collections.Generic.List<Q_hero> _list;
-        public System.Collections.Generic.List<Q_hero> System.Collections.Generic.List => _list;
+        public System.Collections.Generic.List<Q_hero> List => _list;
 
         private System.Collections.Generic.Dictionary<int, Q_hero> _dic;
         public System.Collections.Generic.Dictionary<int, Q_hero> Dic => _dic;

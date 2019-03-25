@@ -10,7 +10,7 @@ namespace App.Cfg.Container
     public class C_bing_zhong_xi {
 
         private System.Collections.Generic.List<Q_bing_zhong_xi> _list;
-        public System.Collections.Generic.List<Q_bing_zhong_xi> System.Collections.Generic.List => _list;
+        public System.Collections.Generic.List<Q_bing_zhong_xi> List => _list;
 
         private System.Collections.Generic.Dictionary<int, Q_bing_zhong_xi> _dic;
         public System.Collections.Generic.Dictionary<int, Q_bing_zhong_xi> Dic => _dic;
