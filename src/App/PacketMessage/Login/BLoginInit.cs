@@ -2,6 +2,7 @@ using Util;
 using App.PacketMessage.Skill;
 using App.PacketMessage.Building;
 using App.PacketMessage.Team;
+using App.PacketMessage.Gambling;
 using App.PacketMessage.Hero;
 
 namespace App.PacketMessage.Login
@@ -33,6 +34,8 @@ namespace App.PacketMessage.Login
         public int heroResetTime{ get; set; }
         /** 建筑 */
         public System.Collections.Generic.List<BBuilding> buildings{ get; set; } = new System.Collections.Generic.List<BBuilding>();
+        /** 招募信息 */
+        public BGambling gambling{ get; set; }
 
         public override void Write(System.IO.BinaryWriter writer)
         {
@@ -65,6 +68,7 @@ namespace App.PacketMessage.Login
             {
                 buildings[t52413035].Write(writer);
             }
+            WriteBean(writer, this.gambling);
         }
 
         public override void Read(System.IO.BinaryReader reader)
@@ -113,6 +117,7 @@ namespace App.PacketMessage.Login
                     this.buildings.Add(new BBuilding(reader));
                 }
             }
+            this.gambling = ReadBool(reader) ? new BGambling(reader) : null;
         }
     }
 }

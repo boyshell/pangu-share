@@ -8,7 +8,7 @@ namespace App.Cfg
     /** Created by FreeMarker. DO NOT EDIT!!! */
     public class CfgGroup
     {
-        public const string CODE_VERSION = "e38b844db806a02d2e1dd22e75c34df2";
+        public const string CODE_VERSION = "6d682e688407247cea0892bf170088ee";
         public int DATA_VERSION { get; }
 
         public C_buff buff { get; }
@@ -21,6 +21,7 @@ namespace App.Cfg
         public C_skill skill { get; }
         public C_skill_level skill_level { get; }
         public C_skill_param skill_param { get; }
+        public C_gambling_house gambling_house { get; }
         public C_hero hero { get; }
         public C_hero_param hero_param { get; }
         public C_hero_star hero_star { get; }
@@ -50,6 +51,7 @@ namespace App.Cfg
             this.skill = new C_skill(reader);
             this.skill_level = new C_skill_level(reader);
             this.skill_param = new C_skill_param(reader);
+            this.gambling_house = new C_gambling_house(reader);
             this.hero = new C_hero(reader);
             this.hero_param = new C_hero_param(reader);
             this.hero_star = new C_hero_star(reader);
