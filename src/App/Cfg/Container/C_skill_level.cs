@@ -9,21 +9,21 @@ namespace App.Cfg.Container
      */
     public class C_skill_level {
 
-        private List<Q_skill_level> _list;
-        public List<Q_skill_level> List => _list;
+        private System.Collections.Generic.List<Q_skill_level> _list;
+        public System.Collections.Generic.List<Q_skill_level> System.Collections.Generic.List => _list;
 
-        private Dictionary<int, Q_skill_level> _dic; // todo key的类型自己确认
-        public Dictionary<int, Q_skill_level> Dic => _dic; // todo key的类型自己确认
+        private System.Collections.Generic.Dictionary<int, Q_skill_level> _dic;
+        public System.Collections.Generic.Dictionary<int, Q_skill_level> Dic => _dic;
 
         public C_skill_level(BinaryReader reader)
         {
             Q_skill_level[] array = Q_skill_level.Create(reader);
-            _list = new List<Q_skill_level>(array);
+            _list = new System.Collections.Generic.List<Q_skill_level>(array);
 
-            _dic = new Dictionary<int, Q_skill_level>(); // todo key的类型自己确认
+            _dic = new System.Collections.Generic.Dictionary<int, Q_skill_level>();
             _list.ForEach((Q_skill_level model) =>
             {
-                _dic[model.xxx] = model; // todo key的类型自己确认
+                _dic[model.q_skill_level] = model;
             });
         }
     }

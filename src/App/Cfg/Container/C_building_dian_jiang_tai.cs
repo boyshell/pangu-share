@@ -9,21 +9,21 @@ namespace App.Cfg.Container
      */
     public class C_building_dian_jiang_tai {
 
-        private List<Q_building_dian_jiang_tai> _list;
-        public List<Q_building_dian_jiang_tai> List => _list;
+        private System.Collections.Generic.List<Q_building_dian_jiang_tai> _list;
+        public System.Collections.Generic.List<Q_building_dian_jiang_tai> System.Collections.Generic.List => _list;
 
-        private Dictionary<int, Q_building_dian_jiang_tai> _dic; // todo key的类型自己确认
-        public Dictionary<int, Q_building_dian_jiang_tai> Dic => _dic; // todo key的类型自己确认
+        private System.Collections.Generic.Dictionary<int, Q_building_dian_jiang_tai> _dic;
+        public System.Collections.Generic.Dictionary<int, Q_building_dian_jiang_tai> Dic => _dic;
 
         public C_building_dian_jiang_tai(BinaryReader reader)
         {
             Q_building_dian_jiang_tai[] array = Q_building_dian_jiang_tai.Create(reader);
-            _list = new List<Q_building_dian_jiang_tai>(array);
+            _list = new System.Collections.Generic.List<Q_building_dian_jiang_tai>(array);
 
-            _dic = new Dictionary<int, Q_building_dian_jiang_tai>(); // todo key的类型自己确认
+            _dic = new System.Collections.Generic.Dictionary<int, Q_building_dian_jiang_tai>();
             _list.ForEach((Q_building_dian_jiang_tai model) =>
             {
-                _dic[model.xxx] = model; // todo key的类型自己确认
+                _dic[model.q_level] = model;
             });
         }
     }

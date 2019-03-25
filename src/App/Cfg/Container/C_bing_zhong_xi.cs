@@ -9,21 +9,21 @@ namespace App.Cfg.Container
      */
     public class C_bing_zhong_xi {
 
-        private List<Q_bing_zhong_xi> _list;
-        public List<Q_bing_zhong_xi> List => _list;
+        private System.Collections.Generic.List<Q_bing_zhong_xi> _list;
+        public System.Collections.Generic.List<Q_bing_zhong_xi> System.Collections.Generic.List => _list;
 
-        private Dictionary<int, Q_bing_zhong_xi> _dic; // todo key的类型自己确认
-        public Dictionary<int, Q_bing_zhong_xi> Dic => _dic; // todo key的类型自己确认
+        private System.Collections.Generic.Dictionary<int, Q_bing_zhong_xi> _dic;
+        public System.Collections.Generic.Dictionary<int, Q_bing_zhong_xi> Dic => _dic;
 
         public C_bing_zhong_xi(BinaryReader reader)
         {
             Q_bing_zhong_xi[] array = Q_bing_zhong_xi.Create(reader);
-            _list = new List<Q_bing_zhong_xi>(array);
+            _list = new System.Collections.Generic.List<Q_bing_zhong_xi>(array);
 
-            _dic = new Dictionary<int, Q_bing_zhong_xi>(); // todo key的类型自己确认
+            _dic = new System.Collections.Generic.Dictionary<int, Q_bing_zhong_xi>();
             _list.ForEach((Q_bing_zhong_xi model) =>
             {
-                _dic[model.xxx] = model; // todo key的类型自己确认
+                _dic[model.q_xi] = model;
             });
         }
     }

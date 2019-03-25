@@ -9,21 +9,21 @@ namespace App.Cfg.Container
      */
     public class C_team_param {
 
-        private List<Q_team_param> _list;
-        public List<Q_team_param> List => _list;
+        private System.Collections.Generic.List<Q_team_param> _list;
+        public System.Collections.Generic.List<Q_team_param> System.Collections.Generic.List => _list;
 
-        private Dictionary<int, Q_team_param> _dic; // todo key的类型自己确认
-        public Dictionary<int, Q_team_param> Dic => _dic; // todo key的类型自己确认
+        private System.Collections.Generic.Dictionary<int, Q_team_param> _dic;
+        public System.Collections.Generic.Dictionary<int, Q_team_param> Dic => _dic;
 
         public C_team_param(BinaryReader reader)
         {
             Q_team_param[] array = Q_team_param.Create(reader);
-            _list = new List<Q_team_param>(array);
+            _list = new System.Collections.Generic.List<Q_team_param>(array);
 
-            _dic = new Dictionary<int, Q_team_param>(); // todo key的类型自己确认
+            _dic = new System.Collections.Generic.Dictionary<int, Q_team_param>();
             _list.ForEach((Q_team_param model) =>
             {
-                _dic[model.xxx] = model; // todo key的类型自己确认
+                _dic[model.q_id] = model;
             });
         }
     }
