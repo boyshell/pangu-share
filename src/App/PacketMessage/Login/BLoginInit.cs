@@ -3,6 +3,7 @@ using App.PacketMessage.Skill;
 using App.PacketMessage.Building;
 using App.PacketMessage.Team;
 using App.PacketMessage.Gambling;
+using App.PacketMessage.Land;
 using App.PacketMessage.Hero;
 
 namespace App.PacketMessage.Login
@@ -36,6 +37,8 @@ namespace App.PacketMessage.Login
         public System.Collections.Generic.List<BBuilding> buildings{ get; set; } = new System.Collections.Generic.List<BBuilding>();
         /** 招募信息 */
         public BGambling gambling{ get; set; }
+        /** 领地信息 */
+        public System.Collections.Generic.List<BLand> lands{ get; set; } = new System.Collections.Generic.List<BLand>();
 
         public override void Write(System.IO.BinaryWriter writer)
         {
@@ -69,6 +72,11 @@ namespace App.PacketMessage.Login
                 buildings[t52413035].Write(writer);
             }
             WriteBean(writer, this.gambling);
+            WriteInt(writer, this.lands.Count);
+            for (int t52413035 = 0; t52413035 < this.lands.Count; ++t52413035)
+            {
+                lands[t52413035].Write(writer);
+            }
         }
 
         public override void Read(System.IO.BinaryReader reader)
@@ -118,6 +126,14 @@ namespace App.PacketMessage.Login
                 }
             }
             this.gambling = ReadBool(reader) ? new BGambling(reader) : null;
+            {
+                int size52413035 = ReadInt(reader);
+                this.lands = new System.Collections.Generic.List<BLand>();
+                for (int t52413035 = 0; t52413035 < size52413035; ++t52413035)
+                {
+                    this.lands.Add(new BLand(reader));
+                }
+            }
         }
     }
 }

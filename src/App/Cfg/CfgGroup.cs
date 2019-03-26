@@ -8,7 +8,7 @@ namespace App.Cfg
     /** Created by FreeMarker. DO NOT EDIT!!! */
     public class CfgGroup
     {
-        public const string CODE_VERSION = "604103090457994537ffe09798c3a3d9";
+        public const string CODE_VERSION = "07d7fe877678fde7c95535b62f4378eb";
         public int DATA_VERSION { get; }
 
         public C_buff buff { get; }
@@ -28,6 +28,7 @@ namespace App.Cfg
         public C_hero_combo hero_combo { get; }
         public C_team_param team_param { get; }
         public C_team_cost team_cost { get; }
+        public C_land land { get; }
 
         private static CfgGroup instance;
 
@@ -57,6 +58,7 @@ namespace App.Cfg
             this.hero_combo = new C_hero_combo(reader);
             this.team_param = new C_team_param(reader);
             this.team_cost = new C_team_cost(reader);
+            this.land = new C_land(reader);
         }
 
         public static CfgGroup GetInstance(BinaryReader reader)

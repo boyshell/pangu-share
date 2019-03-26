@@ -13,12 +13,15 @@ namespace App.PacketMessage.Team
         public int position{ get; set; }
         /** 武将卡唯一ID */
         public int heroUID{ get; set; }
+        /** 兵力 */
+        public int bingLi{ get; set; }
 
         public override void Write(System.IO.BinaryWriter writer)
         {
             WriteInt(writer, this.teamIndex);
             WriteInt(writer, this.position);
             WriteInt(writer, this.heroUID);
+            WriteInt(writer, this.bingLi);
         }
 
         public override void Read(System.IO.BinaryReader reader)
@@ -26,6 +29,7 @@ namespace App.PacketMessage.Team
             this.teamIndex = ReadInt(reader);
             this.position = ReadInt(reader);
             this.heroUID = ReadInt(reader);
+            this.bingLi = ReadInt(reader);
         }
 
       public override int Id
