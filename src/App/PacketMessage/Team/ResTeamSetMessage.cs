@@ -1,3 +1,4 @@
+using App.PacketMessage.Team;
 
 namespace App.PacketMessage.Team
 {
@@ -7,29 +8,28 @@ namespace App.PacketMessage.Team
      */
     public class ResTeamSetPacketMessage : Network.PacketMessage
     {
-        /** 队伍序号(1开始) */
-        public int teamIndex{ get; set; }
-        /** 队伍中的位置[1:大营][2:中军][3:前锋] */
-        public int position{ get; set; }
-        /** 武将卡唯一ID */
-        public int heroUID{ get; set; }
-        /** 兵力 */
-        public int bingLi{ get; set; }
+        /** 变更的队伍 */
+        public System.Collections.Generic.List<BTeam> teams{ get; set; } = new System.Collections.Generic.List<BTeam>();
 
         public override void Write(System.IO.BinaryWriter writer)
         {
-            WriteInt(writer, this.teamIndex);
-            WriteInt(writer, this.position);
-            WriteInt(writer, this.heroUID);
-            WriteInt(writer, this.bingLi);
+            WriteInt(writer, this.teams.Count);
+            for (int t52413035 = 0; t52413035 < this.teams.Count; ++t52413035)
+            {
+                teams[t52413035].Write(writer);
+            }
         }
 
         public override void Read(System.IO.BinaryReader reader)
         {
-            this.teamIndex = ReadInt(reader);
-            this.position = ReadInt(reader);
-            this.heroUID = ReadInt(reader);
-            this.bingLi = ReadInt(reader);
+            {
+                int size52413035 = ReadInt(reader);
+                this.teams = new System.Collections.Generic.List<BTeam>();
+                for (int t52413035 = 0; t52413035 < size52413035; ++t52413035)
+                {
+                    this.teams.Add(new BTeam(reader));
+                }
+            }
         }
 
       public override int Id
