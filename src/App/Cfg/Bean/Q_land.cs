@@ -9,7 +9,7 @@ namespace App.Cfg.Bean
      */
     public class Q_land : Util.Bean
     {
-        /** 产品类型,对应ValueType */
+        /** 产品类型,对应UserAttributeType */
         public int q_production_type { get; }
         /** 产量 */
         public string q_production { get; }
