@@ -3,11 +3,11 @@ namespace App.PacketMessage.User
 {
     /**
      * Created by FreeMarker. DO NOT EDIT!!!
-     * 更新值
+     * 更新属性
      */
-    public class ResUserUpdateValuePacketMessage : Network.PacketMessage
+    public class ResUserUpdateAttributePacketMessage : Network.PacketMessage
     {
-        /** 类型[1:铜币][2:元宝(充值)][3:元宝(非充值)][4:技能经验][5:木材][6:铁矿][7:石料][8:粮草][9:预备兵][10:名望][11:政令] */
+        /** 类型[1:统帅][2:队伍数量][3:征兵队列数量][4:税收][5:征兵时间减少][6:预备兵恢复时间减少][7:前锋数量][8:预备兵上限][9:武将兵力上限][10:资源上限][11:木材(产量)][12:铁矿(产量)][13:石料(产量)][14:粮草(产量)][15:名望上限][16:交易比例提升][17:税收比例提升][18:产量比例提升][19:武将卡获取经验比例提升][20:武将卡体力恢复比例提升] */
         public int type{ get; set; }
         /** 值 */
         public int value{ get; set; }
@@ -26,7 +26,7 @@ namespace App.PacketMessage.User
 
       public override int Id
       {
-        get { return 17; }
+        get { return 16; }
       }
     }
 }

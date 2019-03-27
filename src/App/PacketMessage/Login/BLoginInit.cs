@@ -39,6 +39,8 @@ namespace App.PacketMessage.Login
         public BGambling gambling{ get; set; }
         /** 领地信息 */
         public System.Collections.Generic.List<BLand> lands{ get; set; } = new System.Collections.Generic.List<BLand>();
+        /** 属性列表 */
+        public System.Collections.Generic.List<int> attributes{ get; set; } = new System.Collections.Generic.List<int>();
 
         public override void Write(System.IO.BinaryWriter writer)
         {
@@ -76,6 +78,11 @@ namespace App.PacketMessage.Login
             for (int t52413035 = 0; t52413035 < this.lands.Count; ++t52413035)
             {
                 lands[t52413035].Write(writer);
+            }
+            WriteInt(writer, this.attributes.Count);
+            for (int t52413035 = 0; t52413035 < this.attributes.Count; ++t52413035)
+            {
+                WriteInt(writer, attributes[t52413035]);
             }
         }
 
@@ -132,6 +139,14 @@ namespace App.PacketMessage.Login
                 for (int t52413035 = 0; t52413035 < size52413035; ++t52413035)
                 {
                     this.lands.Add(new BLand(reader));
+                }
+            }
+            {
+                int size52413035 = ReadInt(reader);
+                this.attributes = new System.Collections.Generic.List<int>();
+                for (int t52413035 = 0; t52413035 < size52413035; ++t52413035)
+                {
+                    this.attributes.Add(ReadInt(reader));
                 }
             }
         }

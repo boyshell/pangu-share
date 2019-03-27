@@ -13,6 +13,8 @@ namespace App.Cfg.Bean
         public int q_id { get; }
         /** 技能名字 */
         public string q_name { get; }
+        /** 技能图标 */
+        public int q_icon { get; }
         /** 研究所需 */
         public string q_research_hero { get; }
         /** 研究提升进度 */
@@ -42,6 +44,7 @@ namespace App.Cfg.Bean
         {
             this.q_id = ReadInt(reader);
             this.q_name = ReadString(reader);
+            this.q_icon = ReadInt(reader);
             this.q_research_hero = ReadString(reader);
             this.q_research_progress = ReadInt(reader);
             this.q_count = ReadInt(reader);
