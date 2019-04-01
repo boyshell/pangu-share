@@ -26,5 +26,12 @@ namespace App.Cfg.Container
                 _dic[model.q_id] = model;
             });
         }
+
+        public Q_gambling_house GetValue(int key)
+        {
+            Q_gambling_house ret;
+            _dic.TryGetValue(key, out ret);
+            return ret;
+        }
     }
 }

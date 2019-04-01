@@ -26,5 +26,12 @@ namespace App.Cfg.Container
                 _dic[model.q_level] = model;
             });
         }
+
+        public Q_building_dian_jiang_tai GetValue(int key)
+        {
+            Q_building_dian_jiang_tai ret;
+            _dic.TryGetValue(key, out ret);
+            return ret;
+        }
     }
 }

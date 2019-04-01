@@ -26,5 +26,12 @@ namespace App.Cfg.Container
                 _dic[model.q_country] = model;
             });
         }
+
+        public Q_team_cost GetValue(int key)
+        {
+            Q_team_cost ret;
+            _dic.TryGetValue(key, out ret);
+            return ret;
+        }
     }
 }

@@ -26,5 +26,12 @@ namespace App.Cfg.Container
                 _dic[model.q_level] = model;
             });
         }
+
+        public Q_hero_level GetValue(int key)
+        {
+            Q_hero_level ret;
+            _dic.TryGetValue(key, out ret);
+            return ret;
+        }
     }
 }

@@ -26,5 +26,12 @@ namespace App.Cfg.Container
                 _dic[model.q_xi] = model;
             });
         }
+
+        public Q_bing_zhong_xi GetValue(int key)
+        {
+            Q_bing_zhong_xi ret;
+            _dic.TryGetValue(key, out ret);
+            return ret;
+        }
     }
 }

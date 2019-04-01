@@ -26,5 +26,12 @@ namespace App.Cfg.Container
                 _dic[model.q_production_type] = model;
             });
         }
+
+        public Q_land GetValue(int key)
+        {
+            Q_land ret;
+            _dic.TryGetValue(key, out ret);
+            return ret;
+        }
     }
 }

@@ -26,5 +26,12 @@ namespace App.Cfg.Container
                 _dic[model.q_name] = model;
             });
         }
+
+        public Q_hero_combo GetValue(string key)
+        {
+            Q_hero_combo ret;
+            _dic.TryGetValue(key, out ret);
+            return ret;
+        }
     }
 }
