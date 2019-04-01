@@ -37,6 +37,8 @@ namespace App.Cfg.Bean
         public string q_damage_formula { get; }
         /** 触发概率 */
         public String q_trigger_prob { get; }
+        /** 1主动	2被动	3指挥	4追击	5普通攻击	6建筑	7阵营 */
+        public int q_type { get; }
         /** 准备回合数 */
         public int q_prepare_round { get; }
 
@@ -56,6 +58,7 @@ namespace App.Cfg.Bean
             this.q_buffs = ReadString(reader);
             this.q_damage_formula = ReadString(reader);
             this.q_trigger_prob = ReadString(reader);
+            this.q_type = ReadInt(reader);
             this.q_prepare_round = ReadInt(reader);
         }
 
