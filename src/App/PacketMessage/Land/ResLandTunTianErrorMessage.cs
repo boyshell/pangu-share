@@ -8,16 +8,16 @@ namespace App.PacketMessage.Land
   public class ResLandTunTianErrorPacketMessage : Network.PacketMessage
   {
     /**  */
-    public int error { get; set; }
+    public string error { get; set; }
 
     public override void Write(System.IO.BinaryWriter writer)
     {
-      WriteInt(writer, error);
+      WriteString(writer, error);
     }
 
     public override void Read(System.IO.BinaryReader reader)
     {
-      this.error = ReadInt(reader);
+      this.error = ReadString(reader);
     }
 
     public override int Id
