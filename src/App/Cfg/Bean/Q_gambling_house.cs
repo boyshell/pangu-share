@@ -11,6 +11,12 @@ namespace App.Cfg.Bean
     {
         /** 卡包ID */
         public int q_id { get; }
+        /** 名字(有美术资源就可以干掉这个) */
+        public string q_name { get; }
+        /** 背景图 */
+        public int q_bg { get; }
+        /** 图标 */
+        public string q_icon { get; }
         /** 卡包类型 */
         public int q_type { get; }
         /** 卡包参数 */
@@ -29,6 +35,9 @@ namespace App.Cfg.Bean
         private Q_gambling_house(BinaryReader reader)
         {
             this.q_id = ReadInt(reader);
+            this.q_name = ReadString(reader);
+            this.q_bg = ReadInt(reader);
+            this.q_icon = ReadString(reader);
             this.q_type = ReadInt(reader);
             this.q_param = ReadString(reader);
             this.q_price_type = ReadInt(reader);
