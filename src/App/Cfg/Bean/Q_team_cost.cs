@@ -18,7 +18,7 @@ namespace App.Cfg.Bean
         /** 征兵消耗(单个兵) */
         public string q_zheng_bing_cost { get; }
         /** 维护消耗(粮100个兵每小时) */
-        public int q_wei_hu_liang { get; }
+        public string q_wei_hu_cost { get; }
 
         private Q_team_cost(BinaryReader reader)
         {
@@ -26,7 +26,7 @@ namespace App.Cfg.Bean
             this.q_star = ReadInt(reader);
             this.q_bingzhong = ReadInt(reader);
             this.q_zheng_bing_cost = ReadString(reader);
-            this.q_wei_hu_liang = ReadInt(reader);
+            this.q_wei_hu_cost = ReadString(reader);
         }
 
         public static Q_team_cost[] Create(BinaryReader reader)
