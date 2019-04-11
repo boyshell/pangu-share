@@ -11,24 +11,21 @@ namespace App.Cfg.Bean
     {
         /** id */
         public int q_id { get; }
+        /** 名字 */
+        public String q_name { get; }
         /** 类型 */
         public int q_type { get; }
         /** 参数 */
         public string q_param { get; }
-        /**  */
-        public string q_add_str { get; }
-        /**  */
-        public string q_effect_str { get; }
         /**  */
         public string q_trigger_str { get; }
 
         private Q_buff(BinaryReader reader)
         {
             this.q_id = ReadInt(reader);
+            this.q_name = ReadString(reader);
             this.q_type = ReadInt(reader);
             this.q_param = ReadString(reader);
-            this.q_add_str = ReadString(reader);
-            this.q_effect_str = ReadString(reader);
             this.q_trigger_str = ReadString(reader);
         }
 

@@ -4,12 +4,12 @@ namespace App.PacketMessage.Fight
 {
     /**
      * Created by FreeMarker. DO NOT EDIT!!!
-     * BUFF移除
+     * 兵力变更
      */
-    public class BFightBuffRemove : Bean {
+    public class BFightHeroBingLiChange : Bean {
 
-        public BFightBuffRemove() {}
-        public BFightBuffRemove(System.IO.BinaryReader reader) => Read(reader);
+        public BFightHeroBingLiChange() {}
+        public BFightHeroBingLiChange(System.IO.BinaryReader reader) => Read(reader);
 
         /** 序号(回合*1000000)+顺序ID */
         public int index{ get; set; }
@@ -19,10 +19,10 @@ namespace App.PacketMessage.Fight
         public int srcHeroUID{ get; set; }
         /** 来源技能ID */
         public int srcSkillID{ get; set; }
-        /** 移除BUFF的武将卡 */
+        /** 兵力变更的武将卡 */
         public int dstHeroUID{ get; set; }
-        /** BUFF */
-        public int buffID{ get; set; }
+        /** 变更后的兵力 */
+        public int bingLi{ get; set; }
 
         public override void Write(System.IO.BinaryWriter writer)
         {
@@ -31,7 +31,7 @@ namespace App.PacketMessage.Fight
             WriteInt(writer, this.srcHeroUID);
             WriteInt(writer, this.srcSkillID);
             WriteInt(writer, this.dstHeroUID);
-            WriteInt(writer, this.buffID);
+            WriteInt(writer, this.bingLi);
         }
 
         public override void Read(System.IO.BinaryReader reader)
@@ -41,7 +41,7 @@ namespace App.PacketMessage.Fight
             this.srcHeroUID = ReadInt(reader);
             this.srcSkillID = ReadInt(reader);
             this.dstHeroUID = ReadInt(reader);
-            this.buffID = ReadInt(reader);
+            this.bingLi = ReadInt(reader);
         }
     }
 }
