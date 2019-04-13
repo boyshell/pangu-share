@@ -19,6 +19,8 @@ namespace App.PacketMessage.Fight
         public int dstHeroUID{ get; set; }
         /** BUFF */
         public int buffID{ get; set; }
+        /** 错误码[1:同等或更强][2:处于洞察状态] */
+        public int error{ get; set; }
 
         public override void Write(System.IO.BinaryWriter writer)
         {
@@ -26,6 +28,7 @@ namespace App.PacketMessage.Fight
             WriteBool(writer, this.tab);
             WriteInt(writer, this.dstHeroUID);
             WriteInt(writer, this.buffID);
+            WriteInt(writer, this.error);
         }
 
         public override void Read(System.IO.BinaryReader reader)
@@ -34,6 +37,7 @@ namespace App.PacketMessage.Fight
             this.tab = ReadBool(reader);
             this.dstHeroUID = ReadInt(reader);
             this.buffID = ReadInt(reader);
+            this.error = ReadInt(reader);
         }
     }
 }

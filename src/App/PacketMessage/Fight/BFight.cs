@@ -22,8 +22,6 @@ namespace App.PacketMessage.Fight
         public System.Collections.Generic.List<BFightSkillUse> skillUse{ get; set; } = new System.Collections.Generic.List<BFightSkillUse>();
         /** 日志:添加buff */
         public System.Collections.Generic.List<BFightBuffAdd> buffAdd{ get; set; } = new System.Collections.Generic.List<BFightBuffAdd>();
-        /** 日志:添加失败的buff */
-        public System.Collections.Generic.List<BFightBuffAddErr> buffAddErr{ get; set; } = new System.Collections.Generic.List<BFightBuffAddErr>();
         /** 日志:移除buff */
         public System.Collections.Generic.List<BFightBuffRemove> buffRemove{ get; set; } = new System.Collections.Generic.List<BFightBuffRemove>();
         /** 日志:buff触发 */
@@ -49,11 +47,6 @@ namespace App.PacketMessage.Fight
             for (int t52413035 = 0; t52413035 < this.buffAdd.Count; ++t52413035)
             {
                 buffAdd[t52413035].Write(writer);
-            }
-            WriteInt(writer, this.buffAddErr.Count);
-            for (int t52413035 = 0; t52413035 < this.buffAddErr.Count; ++t52413035)
-            {
-                buffAddErr[t52413035].Write(writer);
             }
             WriteInt(writer, this.buffRemove.Count);
             for (int t52413035 = 0; t52413035 < this.buffRemove.Count; ++t52413035)
@@ -98,14 +91,6 @@ namespace App.PacketMessage.Fight
                 for (int t52413035 = 0; t52413035 < size52413035; ++t52413035)
                 {
                     this.buffAdd.Add(new BFightBuffAdd(reader));
-                }
-            }
-            {
-                int size52413035 = ReadInt(reader);
-                this.buffAddErr = new System.Collections.Generic.List<BFightBuffAddErr>();
-                for (int t52413035 = 0; t52413035 < size52413035; ++t52413035)
-                {
-                    this.buffAddErr.Add(new BFightBuffAddErr(reader));
                 }
             }
             {

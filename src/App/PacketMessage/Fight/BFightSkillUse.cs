@@ -19,6 +19,8 @@ namespace App.PacketMessage.Fight
         public int srcHeroUID{ get; set; }
         /** 技能ID */
         public int skillID{ get; set; }
+        /** 失败原因[1:距离不足][2:无法使用主动战法][3:无法普攻][4:无法行动] */
+        public int error{ get; set; }
 
         public override void Write(System.IO.BinaryWriter writer)
         {
@@ -26,6 +28,7 @@ namespace App.PacketMessage.Fight
             WriteBool(writer, this.tab);
             WriteInt(writer, this.srcHeroUID);
             WriteInt(writer, this.skillID);
+            WriteInt(writer, this.error);
         }
 
         public override void Read(System.IO.BinaryReader reader)
@@ -34,6 +37,7 @@ namespace App.PacketMessage.Fight
             this.tab = ReadBool(reader);
             this.srcHeroUID = ReadInt(reader);
             this.skillID = ReadInt(reader);
+            this.error = ReadInt(reader);
         }
     }
 }

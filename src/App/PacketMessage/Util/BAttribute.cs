@@ -11,7 +11,7 @@ namespace App.PacketMessage.Util
         public BAttribute() {}
         public BAttribute(System.IO.BinaryReader reader) => Read(reader);
 
-        /** 属性类型[1:攻击][2:防御][3:谋略][4:速度][5:攻城][6:普攻距离][7:两次普攻概率] */
+        /** 属性类型[1:攻击][2:防御][3:谋略][4:速度][5:攻城][6:普攻距离] */
         public int type{ get; set; }
         /** 属性值 */
         public int value{ get; set; }
