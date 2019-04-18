@@ -15,18 +15,18 @@ namespace App.Cfg.Bean
         public int q_star { get; }
         /** 兵种(1弓2步3骑) */
         public int q_bingzhong { get; }
-        /** 征兵消耗(单个兵) */
-        public string q_zheng_bing_cost { get; }
-        /** 维护消耗(粮100个兵每小时) */
-        public string q_wei_hu_cost { get; }
+        /** 征兵资源消耗(单个兵) */
+        public int q_zheng_bing_cost { get; }
+        /** 维护资源消耗(粮100个兵每小时) */
+        public int q_wei_hu_cost { get; }
 
         private Q_team_cost(BinaryReader reader)
         {
             this.q_country = ReadInt(reader);
             this.q_star = ReadInt(reader);
             this.q_bingzhong = ReadInt(reader);
-            this.q_zheng_bing_cost = ReadString(reader);
-            this.q_wei_hu_cost = ReadString(reader);
+            this.q_zheng_bing_cost = ReadInt(reader);
+            this.q_wei_hu_cost = ReadInt(reader);
         }
 
         public static Q_team_cost[] Create(BinaryReader reader)

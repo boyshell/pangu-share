@@ -19,8 +19,8 @@ namespace App.Cfg.Bean
         public string q_param { get; }
         /** 升级所需时间(秒) */
         public int q_upgrade_time { get; }
-        /** 升级消耗 */
-        public string q_upgrade_cost { get; }
+        /** 升级消耗资源 */
+        public int q_upgrade_cost { get; }
 
         private Q_building(BinaryReader reader)
         {
@@ -29,7 +29,7 @@ namespace App.Cfg.Bean
             this.q_type = ReadInt(reader);
             this.q_param = ReadString(reader);
             this.q_upgrade_time = ReadInt(reader);
-            this.q_upgrade_cost = ReadString(reader);
+            this.q_upgrade_cost = ReadInt(reader);
         }
 
         public static Q_building[] Create(BinaryReader reader)

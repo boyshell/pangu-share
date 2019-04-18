@@ -7,7 +7,7 @@ namespace App.PacketMessage.User
      */
     public class ResUserUpdateValuePacketMessage : Network.PacketMessage
     {
-        /** 类型[1:铜币][2:元宝(充值)][3:元宝(非充值)][4:技能经验][5:木材][6:铁矿][7:石料][8:粮草][9:预备兵][10:名望][11:政令] */
+        /** 类型[1:铜币][2:元宝(充值)][3:元宝(非充值)][4:技能经验][5:资源][6:预备兵] */
         public int type{ get; set; }
         /** 值 */
         public int value{ get; set; }

@@ -1,11 +1,11 @@
 
-namespace App.PacketMessage.Land
+namespace App.PacketMessage.Guanqia
 {
   /**
    * Created by FreeMarker. DO NOT EDIT!!!
-   * 屯田错误
+   * 闯关错误
    */
-  public class ResLandTunTianErrorPacketMessage : Network.PacketMessage
+  public class ResGuanQiaFightErrorPacketMessage : Network.PacketMessage
   {
     /**  */
     public string error { get; set; }
@@ -22,7 +22,7 @@ namespace App.PacketMessage.Land
 
     public override int Id
     {
-      get { return 370; }
+      get { return 381; }
     }
   }
 }

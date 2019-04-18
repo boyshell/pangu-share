@@ -8,10 +8,11 @@ namespace App.Cfg
     /** Created by FreeMarker. DO NOT EDIT!!! */
     public class CfgGroup
     {
-        public const string CODE_VERSION = "339dd53296c431ef76bde767ccae514d";
+        public const string CODE_VERSION = "c0e3d198ae74d8abb7350cba24419727";
         public int DATA_VERSION { get; }
 
         public C_buff buff { get; }
+        public C_guan_qia guan_qia { get; }
         public C_bing_zhong bing_zhong { get; }
         public C_bing_zhong_xi bing_zhong_xi { get; }
         public C_building building { get; }
@@ -29,8 +30,6 @@ namespace App.Cfg
         public C_hero_combo hero_combo { get; }
         public C_team_param team_param { get; }
         public C_team_cost team_cost { get; }
-        public C_land land { get; }
-        public C_land_param land_param { get; }
 
         private static CfgGroup instance;
 
@@ -44,6 +43,7 @@ namespace App.Cfg
             this.DATA_VERSION = ByteBufUtil.ReadInt(reader);
 
             this.buff = new C_buff(reader);
+            this.guan_qia = new C_guan_qia(reader);
             this.bing_zhong = new C_bing_zhong(reader);
             this.bing_zhong_xi = new C_bing_zhong_xi(reader);
             this.building = new C_building(reader);
@@ -61,8 +61,6 @@ namespace App.Cfg
             this.hero_combo = new C_hero_combo(reader);
             this.team_param = new C_team_param(reader);
             this.team_cost = new C_team_cost(reader);
-            this.land = new C_land(reader);
-            this.land_param = new C_land_param(reader);
         }
 
         public static CfgGroup GetInstance(BinaryReader reader)
