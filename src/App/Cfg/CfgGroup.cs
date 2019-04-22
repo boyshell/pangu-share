@@ -8,7 +8,7 @@ namespace App.Cfg
     /** Created by FreeMarker. DO NOT EDIT!!! */
     public class CfgGroup
     {
-        public const string CODE_VERSION = "c0e3d198ae74d8abb7350cba24419727";
+        public const string CODE_VERSION = "c095deed4e0c96c4cfa9f602acde63a7";
         public int DATA_VERSION { get; }
 
         public C_buff buff { get; }

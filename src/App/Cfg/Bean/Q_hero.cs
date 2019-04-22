@@ -15,6 +15,8 @@ namespace App.Cfg.Bean
         public int q_team_id { get; }
         /** 武将名字 */
         public string q_name { get; }
+        /** 描述 */
+        public string q_desc { get; }
         /** 武将卡资源ID */
         public int q_card { get; }
         /** 星 */
@@ -61,6 +63,7 @@ namespace App.Cfg.Bean
             this.q_id = ReadInt(reader);
             this.q_team_id = ReadInt(reader);
             this.q_name = ReadString(reader);
+            this.q_desc = ReadString(reader);
             this.q_card = ReadInt(reader);
             this.q_star = ReadInt(reader);
             this.q_country = ReadInt(reader);
