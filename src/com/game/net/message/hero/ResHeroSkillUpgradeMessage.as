@@ -1,0 +1,66 @@
+package com.game.net.message.hero {
+
+import com.net.Message;
+import engine.base.data.long;
+import engine.base.data.ByteArray;
+
+/**
+ * Created by FreeMarker. DO NOT EDIT!!!
+ * 武将技能升级
+ */
+public class ResHeroSkillUpgradeMessage extends Message {
+  /** 武将唯一ID */
+  private var _heroUID:int;
+  /** 技能格子(1,2,3) */
+  private var _grid:int;
+  /** 技能等级 */
+  private var _level:int;
+
+  /** 武将唯一ID */
+  public function set heroUID(value:int):void {
+    this._heroUID = value;
+  }
+
+  /** 武将唯一ID */
+  public function get heroUID():int {
+    return this._heroUID;
+  }
+
+  /** 技能格子(1,2,3) */
+  public function set grid(value:int):void {
+    this._grid = value;
+  }
+
+  /** 技能格子(1,2,3) */
+  public function get grid():int {
+    return this._grid;
+  }
+
+  /** 技能等级 */
+  public function set level(value:int):void {
+    this._level = value;
+  }
+
+  /** 技能等级 */
+  public function get level():int {
+    return this._level;
+  }
+
+  override public function write(_buf:ByteArray): void {
+        writeInt(_buf, this._heroUID);
+        writeInt(_buf, this._grid);
+        writeInt(_buf, this._level);
+  }
+
+  override public function read(_buf:ByteArray): void {
+    var size52413035:int;
+        this._heroUID = readInt(_buf);
+        this._grid = readInt(_buf);
+        this._level = readInt(_buf);
+  }
+
+  override public function getId(): int {
+    return 309;
+  }
+}
+}
