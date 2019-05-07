@@ -19,7 +19,7 @@ public class Q_guan_qia extends Bean {
     /** 经验 */
     private var _q_exp:int;
     /** 阵容(对应q_robot.q_id) */
-    private var _q_heroes:string;
+    private var _q_heroes:String;
 
     override public function read(_buf:ByteArray): void {
         this._q_id = readInt(_buf);
@@ -45,7 +45,7 @@ public class Q_guan_qia extends Bean {
     public function get q_exp():int {
         return _q_exp;
     }
-    public function get q_heroes():string {
+    public function get q_heroes():String {
         return _q_heroes;
     }
 }

@@ -11,7 +11,7 @@ public class Q_team_param extends Bean {
     /** 参数ID */
     private var _q_id:int;
     /** 参数值 */
-    private var _q_value:string;
+    private var _q_value:String;
 
     override public function read(_buf:ByteArray): void {
         this._q_id = readInt(_buf);
@@ -21,7 +21,7 @@ public class Q_team_param extends Bean {
     public function get q_id():int {
         return _q_id;
     }
-    public function get q_value():string {
+    public function get q_value():String {
         return _q_value;
     }
 }

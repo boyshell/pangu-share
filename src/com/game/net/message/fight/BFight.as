@@ -13,9 +13,11 @@ import engine.base.data.ByteArray;
 
 /**
  * Created by FreeMarker. DO NOT EDIT!!!
- * 战斗日志
+ * 战报
  */
 public class BFight extends Bean {
+  /** 战报唯一id */
+  private var _uid:int;
   /** 左边队伍 */
   private var _lTeam:BFightTeam;
   /** 右边队伍 */
@@ -32,6 +34,16 @@ public class BFight extends Bean {
   private var _buffTrigger:Vector.<BFightBuffTrigger> = new Vector.<BFightBuffTrigger>();
   /** 日志:兵力变更 */
   private var _heroBingLiChange:Vector.<BFightHeroBingLiChange> = new Vector.<BFightHeroBingLiChange>();
+
+  /** 战报唯一id */
+  public function set uid(value:int):void {
+    this._uid = value;
+  }
+
+  /** 战报唯一id */
+  public function get uid():int {
+    return this._uid;
+  }
 
   /** 左边队伍 */
   public function set lTeam(value:BFightTeam):void {
@@ -114,6 +126,7 @@ public class BFight extends Bean {
   }
 
   override public function write(_buf:ByteArray): void {
+        writeInt(_buf, this._uid);
         writeBean(_buf, this._lTeam);
         writeBean(_buf, this._rTeam);
     writeInt(_buf, this._skillPrepare.length);
@@ -144,6 +157,7 @@ public class BFight extends Bean {
 
   override public function read(_buf:ByteArray): void {
     var size52413035:int;
+        this._uid = readInt(_buf);
         this._lTeam = readBean(_buf, BFightTeam) as BFightTeam;
         this._rTeam = readBean(_buf, BFightTeam) as BFightTeam;
     size52413035 = readInt(_buf);

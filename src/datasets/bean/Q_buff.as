@@ -15,9 +15,9 @@ public class Q_buff extends Bean {
     /** 类型 */
     private var _q_type:int;
     /** 参数 */
-    private var _q_param:string;
+    private var _q_param:String;
     /**  */
-    private var _q_trigger_str:string;
+    private var _q_trigger_str:String;
 
     override public function read(_buf:ByteArray): void {
         this._q_id = readInt(_buf);
@@ -36,10 +36,10 @@ public class Q_buff extends Bean {
     public function get q_type():int {
         return _q_type;
     }
-    public function get q_param():string {
+    public function get q_param():String {
         return _q_param;
     }
-    public function get q_trigger_str():string {
+    public function get q_trigger_str():String {
         return _q_trigger_str;
     }
 }

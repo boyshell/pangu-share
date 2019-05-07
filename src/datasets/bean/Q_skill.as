@@ -11,15 +11,15 @@ public class Q_skill extends Bean {
     /** 技能ID */
     private var _q_id:int;
     /** 技能名字 */
-    private var _q_name:string;
+    private var _q_name:String;
     /** 描述 */
-    private var _q_desc:string;
+    private var _q_desc:String;
     /** 技能图标 */
     private var _q_icon:int;
     /** 所属大类(0攻击   1谋略  2恢复   3辅助) */
     private var _q_tab:int;
     /** 研究所需 */
-    private var _q_research_hero:string;
+    private var _q_research_hero:String;
     /** 研究提升进度 */
     private var _q_research_progress:int;
     /** 可装备数量 */
@@ -27,7 +27,7 @@ public class Q_skill extends Bean {
     /** 拆解所需技能经验 */
     private var _q_chaijie_exp:int;
     /** 技能目标描述 */
-    private var _q_target_type_desc:string;
+    private var _q_target_type_desc:String;
     /** 准备回合数 */
     private var _q_prepare_round:int;
 
@@ -48,10 +48,10 @@ public class Q_skill extends Bean {
     public function get q_id():int {
         return _q_id;
     }
-    public function get q_name():string {
+    public function get q_name():String {
         return _q_name;
     }
-    public function get q_desc():string {
+    public function get q_desc():String {
         return _q_desc;
     }
     public function get q_icon():int {
@@ -60,7 +60,7 @@ public class Q_skill extends Bean {
     public function get q_tab():int {
         return _q_tab;
     }
-    public function get q_research_hero():string {
+    public function get q_research_hero():String {
         return _q_research_hero;
     }
     public function get q_research_progress():int {
@@ -72,7 +72,7 @@ public class Q_skill extends Bean {
     public function get q_chaijie_exp():int {
         return _q_chaijie_exp;
     }
-    public function get q_target_type_desc():string {
+    public function get q_target_type_desc():String {
         return _q_target_type_desc;
     }
     public function get q_prepare_round():int {

@@ -13,11 +13,11 @@ public class Q_hero_star extends Bean {
     /** 转化可获得的技能经验 */
     private var _q_skill_exp:int;
     /** 兵种进阶消耗 */
-    private var _q_bing_zhong_jin_jie:string;
+    private var _q_bing_zhong_jin_jie:String;
     /** 觉醒消耗 */
-    private var _q_jue_xing:string;
+    private var _q_jue_xing:String;
     /** 解锁兵种消耗 */
-    private var _q_unlock:string;
+    private var _q_unlock:String;
 
     override public function read(_buf:ByteArray): void {
         this._q_hero_star = readInt(_buf);
@@ -33,13 +33,13 @@ public class Q_hero_star extends Bean {
     public function get q_skill_exp():int {
         return _q_skill_exp;
     }
-    public function get q_bing_zhong_jin_jie():string {
+    public function get q_bing_zhong_jin_jie():String {
         return _q_bing_zhong_jin_jie;
     }
-    public function get q_jue_xing():string {
+    public function get q_jue_xing():String {
         return _q_jue_xing;
     }
-    public function get q_unlock():string {
+    public function get q_unlock():String {
         return _q_unlock;
     }
 }

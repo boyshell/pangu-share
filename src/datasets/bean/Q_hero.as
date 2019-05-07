@@ -13,9 +13,9 @@ public class Q_hero extends Bean {
     /** 武将队伍ID(用以判定上场唯一性的ID) */
     private var _q_team_id:int;
     /** 武将名字 */
-    private var _q_name:string;
+    private var _q_name:String;
     /** 描述 */
-    private var _q_desc:string;
+    private var _q_desc:String;
     /** 武将卡资源ID */
     private var _q_card:int;
     /** 星 */
@@ -25,7 +25,7 @@ public class Q_hero extends Bean {
     /** 默认兵种(1弓2步3骑) */
     private var _q_bingzhong_default:int;
     /** 可进阶兵种列表(1弓2步3骑) */
-    private var _q_bingzhong_jinjie:string;
+    private var _q_bingzhong_jinjie:String;
     /** 统帅 */
     private var _q_cost:int;
     /** 性别(1男2女) */
@@ -90,10 +90,10 @@ public class Q_hero extends Bean {
     public function get q_team_id():int {
         return _q_team_id;
     }
-    public function get q_name():string {
+    public function get q_name():String {
         return _q_name;
     }
-    public function get q_desc():string {
+    public function get q_desc():String {
         return _q_desc;
     }
     public function get q_card():int {
@@ -108,7 +108,7 @@ public class Q_hero extends Bean {
     public function get q_bingzhong_default():int {
         return _q_bingzhong_default;
     }
-    public function get q_bingzhong_jinjie():string {
+    public function get q_bingzhong_jinjie():String {
         return _q_bingzhong_jinjie;
     }
     public function get q_cost():int {
