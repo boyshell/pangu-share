@@ -18,6 +18,8 @@ import engine.base.data.ByteArray;
 public class BFight extends Bean {
   /** 战报唯一id */
   private var _uid:int;
+  /** 战报时间 */
+  private var _time:int;
   /** 左边队伍 */
   private var _lTeam:BFightTeam;
   /** 右边队伍 */
@@ -43,6 +45,16 @@ public class BFight extends Bean {
   /** 战报唯一id */
   public function get uid():int {
     return this._uid;
+  }
+
+  /** 战报时间 */
+  public function set time(value:int):void {
+    this._time = value;
+  }
+
+  /** 战报时间 */
+  public function get time():int {
+    return this._time;
   }
 
   /** 左边队伍 */
@@ -127,6 +139,7 @@ public class BFight extends Bean {
 
   override public function write(_buf:ByteArray): void {
         writeInt(_buf, this._uid);
+        writeInt(_buf, this._time);
         writeBean(_buf, this._lTeam);
         writeBean(_buf, this._rTeam);
     writeInt(_buf, this._skillPrepare.length);
@@ -158,6 +171,7 @@ public class BFight extends Bean {
   override public function read(_buf:ByteArray): void {
     var size52413035:int;
         this._uid = readInt(_buf);
+        this._time = readInt(_buf);
         this._lTeam = readBean(_buf, BFightTeam) as BFightTeam;
         this._rTeam = readBean(_buf, BFightTeam) as BFightTeam;
     size52413035 = readInt(_buf);

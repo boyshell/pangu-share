@@ -6,6 +6,7 @@ import datasets.container.Q_buffContainer;
 import datasets.container.Q_guan_qiaContainer;
 import datasets.container.Q_bing_zhongContainer;
 import datasets.container.Q_bing_zhong_xiContainer;
+import datasets.container.Q_guild_levelContainer;
 import datasets.container.Q_buildingContainer;
 import datasets.container.Q_building_dian_jiang_taiContainer;
 import datasets.container.Q_building_paramContainer;
@@ -24,7 +25,7 @@ import datasets.container.Q_team_costContainer;
 
 /** Created by FreeMarker. DO NOT EDIT!!! */
 public class ConfigGroup {
-    public static const CODE_VERSION:String = "3f8dbfb6ec1386f28c10a88f4cff0706";
+    public static const CODE_VERSION:String = "2ee8e2ede3dd3b5b0e81e3ac440ad9d9";
     public var DATA_VERSION:int;
 
     public function ConfigGroup(buf:ByteArray) {
@@ -38,6 +39,7 @@ public class ConfigGroup {
         Q_guan_qiaContainer.SetData(buf);
         Q_bing_zhongContainer.SetData(buf);
         Q_bing_zhong_xiContainer.SetData(buf);
+        Q_guild_levelContainer.SetData(buf);
         Q_buildingContainer.SetData(buf);
         Q_building_dian_jiang_taiContainer.SetData(buf);
         Q_building_paramContainer.SetData(buf);
