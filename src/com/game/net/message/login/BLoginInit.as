@@ -2,6 +2,9 @@ package com.game.net.message.login {
 
 import com.game.net.message.skill.BSkillProgress;
 import com.game.net.message.gambling.BGambling;
+import com.game.net.message.mail.BMailPersonalGroup;
+import com.game.net.message.mail.BMailSystem;
+import com.game.net.message.mail.BMailGuild;
 import com.game.net.message.hero.BHero;
 import com.game.net.message.team.BTeam;
 import com.game.net.message.building.BBuilding;
@@ -38,6 +41,12 @@ public class BLoginInit extends Bean {
   private var _attributes:Vector.<int> = new Vector.<int>();
   /** 已通关关卡ID */
   private var _guanQiaID:int;
+  /** 个人邮件 */
+  private var _personalMails:Vector.<BMailPersonalGroup> = new Vector.<BMailPersonalGroup>();
+  /** 系统邮件 */
+  private var _systemMails:Vector.<BMailSystem> = new Vector.<BMailSystem>();
+  /** 帮会邮件 */
+  private var _guildMails:Vector.<BMailGuild> = new Vector.<BMailGuild>();
 
   /** 名字 */
   public function set name(value:String):void {
@@ -159,6 +168,36 @@ public class BLoginInit extends Bean {
     return this._guanQiaID;
   }
 
+  /** 个人邮件 */
+  public function set personalMails(value:Vector.<BMailPersonalGroup>):void {
+    this._personalMails = value;
+  }
+
+  /** 个人邮件 */
+  public function get personalMails():Vector.<BMailPersonalGroup> {
+    return this._personalMails;
+  }
+
+  /** 系统邮件 */
+  public function set systemMails(value:Vector.<BMailSystem>):void {
+    this._systemMails = value;
+  }
+
+  /** 系统邮件 */
+  public function get systemMails():Vector.<BMailSystem> {
+    return this._systemMails;
+  }
+
+  /** 帮会邮件 */
+  public function set guildMails(value:Vector.<BMailGuild>):void {
+    this._guildMails = value;
+  }
+
+  /** 帮会邮件 */
+  public function get guildMails():Vector.<BMailGuild> {
+    return this._guildMails;
+  }
+
   override public function write(_buf:ByteArray): void {
         writeString(_buf, this._name);
     writeInt(_buf, this._values.length);
@@ -190,6 +229,18 @@ public class BLoginInit extends Bean {
         writeInt(_buf, _attributes[i_am_tmp_i]);
     }
         writeInt(_buf, this._guanQiaID);
+    writeInt(_buf, this._personalMails.length);
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._personalMails.length; ++i_am_tmp_i) {
+        _personalMails[i_am_tmp_i].write(_buf);
+    }
+    writeInt(_buf, this._systemMails.length);
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._systemMails.length; ++i_am_tmp_i) {
+        _systemMails[i_am_tmp_i].write(_buf);
+    }
+    writeInt(_buf, this._guildMails.length);
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._guildMails.length; ++i_am_tmp_i) {
+        _guildMails[i_am_tmp_i].write(_buf);
+    }
   }
 
   override public function read(_buf:ByteArray): void {
@@ -230,6 +281,21 @@ public class BLoginInit extends Bean {
         this._attributes[i_am_tmp_i] = readInt(_buf);
     }
         this._guanQiaID = readInt(_buf);
+    size52413035 = readInt(_buf);
+    this._personalMails = new Vector.<BMailPersonalGroup>();
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
+        this._personalMails[i_am_tmp_i] = readBeanInList(_buf, BMailPersonalGroup) as BMailPersonalGroup;
+    }
+    size52413035 = readInt(_buf);
+    this._systemMails = new Vector.<BMailSystem>();
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
+        this._systemMails[i_am_tmp_i] = readBeanInList(_buf, BMailSystem) as BMailSystem;
+    }
+    size52413035 = readInt(_buf);
+    this._guildMails = new Vector.<BMailGuild>();
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
+        this._guildMails[i_am_tmp_i] = readBeanInList(_buf, BMailGuild) as BMailGuild;
+    }
   }
 }
 }
