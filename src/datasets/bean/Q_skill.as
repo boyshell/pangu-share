@@ -20,6 +20,8 @@ public class Q_skill extends Bean {
     private var _q_count:int;
     /** 技能目标描述 */
     private var _q_target_type_desc:String;
+    /** 技能类型 */
+    private var _q_type:int;
     /** 可学习兵种 */
     private var _q_bing_zhong:String;
 
@@ -30,6 +32,7 @@ public class Q_skill extends Bean {
         this._q_tab = readInt(_buf);
         this._q_count = readInt(_buf);
         this._q_target_type_desc = readString(_buf);
+        this._q_type = readInt(_buf);
         this._q_bing_zhong = readString(_buf);
     }
 
@@ -50,6 +53,9 @@ public class Q_skill extends Bean {
     }
     public function get q_target_type_desc():String {
         return _q_target_type_desc;
+    }
+    public function get q_type():int {
+        return _q_type;
     }
     public function get q_bing_zhong():String {
         return _q_bing_zhong;
