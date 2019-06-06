@@ -11,14 +11,12 @@ import engine.base.data.ByteArray;
 public class BFightBuffTrigger extends Bean {
   /** 序号(回合*1000000)+顺序ID */
   private var _index:int;
-  /** 是否加tab */
-  private var _tab:Boolean;
   /** 来源唯一ID(0表示无行为者,负数则表示建筑类型) */
   private var _srcHeroUID:int;
   /** 触发者唯一ID */
   private var _dstHeroUID:int;
-  /** BUFF */
-  private var _buffID:int;
+  /** BUFF类型 */
+  private var _buffType:int;
   /** 参数 */
   private var _vars:Vector.<int> = new Vector.<int>();
 
@@ -30,16 +28,6 @@ public class BFightBuffTrigger extends Bean {
   /** 序号(回合*1000000)+顺序ID */
   public function get index():int {
     return this._index;
-  }
-
-  /** 是否加tab */
-  public function set tab(value:Boolean):void {
-    this._tab = value;
-  }
-
-  /** 是否加tab */
-  public function get tab():Boolean {
-    return this._tab;
   }
 
   /** 来源唯一ID(0表示无行为者,负数则表示建筑类型) */
@@ -62,14 +50,14 @@ public class BFightBuffTrigger extends Bean {
     return this._dstHeroUID;
   }
 
-  /** BUFF */
-  public function set buffID(value:int):void {
-    this._buffID = value;
+  /** BUFF类型 */
+  public function set buffType(value:int):void {
+    this._buffType = value;
   }
 
-  /** BUFF */
-  public function get buffID():int {
-    return this._buffID;
+  /** BUFF类型 */
+  public function get buffType():int {
+    return this._buffType;
   }
 
   /** 参数 */
@@ -84,10 +72,9 @@ public class BFightBuffTrigger extends Bean {
 
   override public function write(_buf:ByteArray): void {
         writeInt(_buf, this._index);
-        writeBoolean(_buf, this._tab);
         writeInt(_buf, this._srcHeroUID);
         writeInt(_buf, this._dstHeroUID);
-        writeInt(_buf, this._buffID);
+        writeInt(_buf, this._buffType);
     writeInt(_buf, this._vars.length);
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._vars.length; ++i_am_tmp_i) {
         writeInt(_buf, _vars[i_am_tmp_i]);
@@ -97,10 +84,9 @@ public class BFightBuffTrigger extends Bean {
   override public function read(_buf:ByteArray): void {
     var size52413035:int;
         this._index = readInt(_buf);
-        this._tab = readBoolean(_buf);
         this._srcHeroUID = readInt(_buf);
         this._dstHeroUID = readInt(_buf);
-        this._buffID = readInt(_buf);
+        this._buffType = readInt(_buf);
     size52413035 = readInt(_buf);
     this._vars = new Vector.<int>();
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {

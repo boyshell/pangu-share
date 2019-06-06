@@ -12,6 +12,7 @@ import datasets.container.Q_building_paramContainer;
 import datasets.container.Q_fight_paramContainer;
 import datasets.container.Q_skill_levelContainer;
 import datasets.container.Q_skill_paramContainer;
+import datasets.container.Q_buff_logContainer;
 import datasets.container.Q_skillContainer;
 import datasets.container.Q_gambling_houseContainer;
 import datasets.container.Q_heroContainer;
@@ -24,7 +25,7 @@ import datasets.container.Q_team_costContainer;
 
 /** Created by FreeMarker. DO NOT EDIT!!! */
 public class ConfigGroup {
-    public static const CODE_VERSION:String = "cd13077aa9d08c3da35b57979a4a15f7";
+    public static const CODE_VERSION:String = "f1a9c19855141a64d46ea2209160f151";
     public var DATA_VERSION:int;
 
     public function ConfigGroup(buf:ByteArray) {
@@ -44,6 +45,7 @@ public class ConfigGroup {
         Q_fight_paramContainer.SetData(buf);
         Q_skill_levelContainer.SetData(buf);
         Q_skill_paramContainer.SetData(buf);
+        Q_buff_logContainer.SetData(buf);
         Q_skillContainer.SetData(buf);
         Q_gambling_houseContainer.SetData(buf);
         Q_heroContainer.SetData(buf);

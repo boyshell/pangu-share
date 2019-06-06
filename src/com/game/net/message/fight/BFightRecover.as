@@ -6,19 +6,19 @@ import engine.base.data.ByteArray;
 
 /**
  * Created by FreeMarker. DO NOT EDIT!!!
- * BUFF移除
+ * 恢复
  */
-public class BFightBuffRemove extends Bean {
+public class BFightRecover extends Bean {
   /** 序号(回合*1000000)+顺序ID */
   private var _index:int;
   /** 来源唯一ID(0表示无行为者,负数则表示建筑类型) */
   private var _srcHeroUID:int;
   /** 来源技能ID */
   private var _srcSkillID:int;
-  /** 移除BUFF的武将卡 */
+  /** 兵力变更的武将卡 */
   private var _dstHeroUID:int;
-  /** BUFF类型 */
-  private var _buffType:int;
+  /** 变更后的兵力 */
+  private var _bingLi:int;
 
   /** 序号(回合*1000000)+顺序ID */
   public function set index(value:int):void {
@@ -50,24 +50,24 @@ public class BFightBuffRemove extends Bean {
     return this._srcSkillID;
   }
 
-  /** 移除BUFF的武将卡 */
+  /** 兵力变更的武将卡 */
   public function set dstHeroUID(value:int):void {
     this._dstHeroUID = value;
   }
 
-  /** 移除BUFF的武将卡 */
+  /** 兵力变更的武将卡 */
   public function get dstHeroUID():int {
     return this._dstHeroUID;
   }
 
-  /** BUFF类型 */
-  public function set buffType(value:int):void {
-    this._buffType = value;
+  /** 变更后的兵力 */
+  public function set bingLi(value:int):void {
+    this._bingLi = value;
   }
 
-  /** BUFF类型 */
-  public function get buffType():int {
-    return this._buffType;
+  /** 变更后的兵力 */
+  public function get bingLi():int {
+    return this._bingLi;
   }
 
   override public function write(_buf:ByteArray): void {
@@ -75,7 +75,7 @@ public class BFightBuffRemove extends Bean {
         writeInt(_buf, this._srcHeroUID);
         writeInt(_buf, this._srcSkillID);
         writeInt(_buf, this._dstHeroUID);
-        writeInt(_buf, this._buffType);
+        writeInt(_buf, this._bingLi);
   }
 
   override public function read(_buf:ByteArray): void {
@@ -84,7 +84,7 @@ public class BFightBuffRemove extends Bean {
         this._srcHeroUID = readInt(_buf);
         this._srcSkillID = readInt(_buf);
         this._dstHeroUID = readInt(_buf);
-        this._buffType = readInt(_buf);
+        this._bingLi = readInt(_buf);
   }
 }
 }

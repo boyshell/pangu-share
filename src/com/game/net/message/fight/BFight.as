@@ -1,11 +1,12 @@
 package com.game.net.message.fight {
 
 import com.game.net.message.fight.BFightBuffTrigger;
+import com.game.net.message.fight.BFightDamage;
 import com.game.net.message.fight.BFightSkillPrepare;
 import com.game.net.message.fight.BFightBuffAdd;
 import com.game.net.message.fight.BFightTeam;
 import com.game.net.message.fight.BFightSkillUse;
-import com.game.net.message.fight.BFightHeroBingLiChange;
+import com.game.net.message.fight.BFightRecover;
 import com.game.net.message.fight.BFightBuffRemove;
 import engine.base.data.Bean;
 import engine.base.data.long;
@@ -34,8 +35,10 @@ public class BFight extends Bean {
   private var _buffRemove:Vector.<BFightBuffRemove> = new Vector.<BFightBuffRemove>();
   /** 日志:buff触发 */
   private var _buffTrigger:Vector.<BFightBuffTrigger> = new Vector.<BFightBuffTrigger>();
-  /** 日志:兵力变更 */
-  private var _heroBingLiChange:Vector.<BFightHeroBingLiChange> = new Vector.<BFightHeroBingLiChange>();
+  /** 日志:伤害 */
+  private var _damage:Vector.<BFightDamage> = new Vector.<BFightDamage>();
+  /** 日志:恢复 */
+  private var _recover:Vector.<BFightRecover> = new Vector.<BFightRecover>();
 
   /** 战报唯一id */
   public function set uid(value:int):void {
@@ -127,14 +130,24 @@ public class BFight extends Bean {
     return this._buffTrigger;
   }
 
-  /** 日志:兵力变更 */
-  public function set heroBingLiChange(value:Vector.<BFightHeroBingLiChange>):void {
-    this._heroBingLiChange = value;
+  /** 日志:伤害 */
+  public function set damage(value:Vector.<BFightDamage>):void {
+    this._damage = value;
   }
 
-  /** 日志:兵力变更 */
-  public function get heroBingLiChange():Vector.<BFightHeroBingLiChange> {
-    return this._heroBingLiChange;
+  /** 日志:伤害 */
+  public function get damage():Vector.<BFightDamage> {
+    return this._damage;
+  }
+
+  /** 日志:恢复 */
+  public function set recover(value:Vector.<BFightRecover>):void {
+    this._recover = value;
+  }
+
+  /** 日志:恢复 */
+  public function get recover():Vector.<BFightRecover> {
+    return this._recover;
   }
 
   override public function write(_buf:ByteArray): void {
@@ -162,9 +175,13 @@ public class BFight extends Bean {
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._buffTrigger.length; ++i_am_tmp_i) {
         _buffTrigger[i_am_tmp_i].write(_buf);
     }
-    writeInt(_buf, this._heroBingLiChange.length);
-    for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._heroBingLiChange.length; ++i_am_tmp_i) {
-        _heroBingLiChange[i_am_tmp_i].write(_buf);
+    writeInt(_buf, this._damage.length);
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._damage.length; ++i_am_tmp_i) {
+        _damage[i_am_tmp_i].write(_buf);
+    }
+    writeInt(_buf, this._recover.length);
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._recover.length; ++i_am_tmp_i) {
+        _recover[i_am_tmp_i].write(_buf);
     }
   }
 
@@ -200,9 +217,14 @@ public class BFight extends Bean {
         this._buffTrigger[i_am_tmp_i] = readBeanInList(_buf, BFightBuffTrigger) as BFightBuffTrigger;
     }
     size52413035 = readInt(_buf);
-    this._heroBingLiChange = new Vector.<BFightHeroBingLiChange>();
+    this._damage = new Vector.<BFightDamage>();
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
-        this._heroBingLiChange[i_am_tmp_i] = readBeanInList(_buf, BFightHeroBingLiChange) as BFightHeroBingLiChange;
+        this._damage[i_am_tmp_i] = readBeanInList(_buf, BFightDamage) as BFightDamage;
+    }
+    size52413035 = readInt(_buf);
+    this._recover = new Vector.<BFightRecover>();
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
+        this._recover[i_am_tmp_i] = readBeanInList(_buf, BFightRecover) as BFightRecover;
     }
   }
 }

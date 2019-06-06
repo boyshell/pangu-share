@@ -11,8 +11,6 @@ import engine.base.data.ByteArray;
 public class BFightSkillPrepare extends Bean {
   /** 序号(回合*1000000)+顺序ID */
   private var _index:int;
-  /** 是否加tab */
-  private var _tab:Boolean;
   /** 使用者ID */
   private var _srcHeroUID:int;
   /** 技能ID */
@@ -26,16 +24,6 @@ public class BFightSkillPrepare extends Bean {
   /** 序号(回合*1000000)+顺序ID */
   public function get index():int {
     return this._index;
-  }
-
-  /** 是否加tab */
-  public function set tab(value:Boolean):void {
-    this._tab = value;
-  }
-
-  /** 是否加tab */
-  public function get tab():Boolean {
-    return this._tab;
   }
 
   /** 使用者ID */
@@ -60,7 +48,6 @@ public class BFightSkillPrepare extends Bean {
 
   override public function write(_buf:ByteArray): void {
         writeInt(_buf, this._index);
-        writeBoolean(_buf, this._tab);
         writeInt(_buf, this._srcHeroUID);
         writeInt(_buf, this._skillID);
   }
@@ -68,7 +55,6 @@ public class BFightSkillPrepare extends Bean {
   override public function read(_buf:ByteArray): void {
     var size52413035:int;
         this._index = readInt(_buf);
-        this._tab = readBoolean(_buf);
         this._srcHeroUID = readInt(_buf);
         this._skillID = readInt(_buf);
   }

@@ -6,13 +6,11 @@ import engine.base.data.ByteArray;
 
 /**
  * Created by FreeMarker. DO NOT EDIT!!!
- * 兵力变更
+ * 伤害
  */
-public class BFightHeroBingLiChange extends Bean {
+public class BFightDamage extends Bean {
   /** 序号(回合*1000000)+顺序ID */
   private var _index:int;
-  /** 是否加tab */
-  private var _tab:Boolean;
   /** 来源唯一ID(0表示无行为者,负数则表示建筑类型) */
   private var _srcHeroUID:int;
   /** 来源技能ID */
@@ -30,16 +28,6 @@ public class BFightHeroBingLiChange extends Bean {
   /** 序号(回合*1000000)+顺序ID */
   public function get index():int {
     return this._index;
-  }
-
-  /** 是否加tab */
-  public function set tab(value:Boolean):void {
-    this._tab = value;
-  }
-
-  /** 是否加tab */
-  public function get tab():Boolean {
-    return this._tab;
   }
 
   /** 来源唯一ID(0表示无行为者,负数则表示建筑类型) */
@@ -84,7 +72,6 @@ public class BFightHeroBingLiChange extends Bean {
 
   override public function write(_buf:ByteArray): void {
         writeInt(_buf, this._index);
-        writeBoolean(_buf, this._tab);
         writeInt(_buf, this._srcHeroUID);
         writeInt(_buf, this._srcSkillID);
         writeInt(_buf, this._dstHeroUID);
@@ -94,7 +81,6 @@ public class BFightHeroBingLiChange extends Bean {
   override public function read(_buf:ByteArray): void {
     var size52413035:int;
         this._index = readInt(_buf);
-        this._tab = readBoolean(_buf);
         this._srcHeroUID = readInt(_buf);
         this._srcSkillID = readInt(_buf);
         this._dstHeroUID = readInt(_buf);
