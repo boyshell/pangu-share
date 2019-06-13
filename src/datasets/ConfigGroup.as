@@ -9,6 +9,7 @@ import datasets.container.Q_guild_levelContainer;
 import datasets.container.Q_buildingContainer;
 import datasets.container.Q_building_dian_jiang_taiContainer;
 import datasets.container.Q_building_paramContainer;
+import datasets.container.Q_building_nameContainer;
 import datasets.container.Q_fight_paramContainer;
 import datasets.container.Q_skill_levelContainer;
 import datasets.container.Q_skill_paramContainer;
@@ -25,7 +26,7 @@ import datasets.container.Q_team_costContainer;
 
 /** Created by FreeMarker. DO NOT EDIT!!! */
 public class ConfigGroup {
-    public static const CODE_VERSION:String = "f1a9c19855141a64d46ea2209160f151";
+    public static const CODE_VERSION:String = "950c1cc90017b963bb1881fd3e6d1312";
     public var DATA_VERSION:int;
 
     public function ConfigGroup(buf:ByteArray) {
@@ -42,6 +43,7 @@ public class ConfigGroup {
         Q_buildingContainer.SetData(buf);
         Q_building_dian_jiang_taiContainer.SetData(buf);
         Q_building_paramContainer.SetData(buf);
+        Q_building_nameContainer.SetData(buf);
         Q_fight_paramContainer.SetData(buf);
         Q_skill_levelContainer.SetData(buf);
         Q_skill_paramContainer.SetData(buf);
