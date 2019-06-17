@@ -5,6 +5,7 @@ import com.game.net.message.gambling.BGambling;
 import com.game.net.message.mail.BMailPersonalGroup;
 import com.game.net.message.mail.BMailSystem;
 import com.game.net.message.mail.BMailGuild;
+import com.game.net.message.fight.BFight;
 import com.game.net.message.hero.BHero;
 import com.game.net.message.team.BTeam;
 import com.game.net.message.building.BBuilding;
@@ -47,6 +48,8 @@ public class BLoginInit extends Bean {
   private var _systemMails:Vector.<BMailSystem> = new Vector.<BMailSystem>();
   /** 帮会邮件 */
   private var _guildMails:Vector.<BMailGuild> = new Vector.<BMailGuild>();
+  /** 战斗日志 */
+  private var _fightHistory:Vector.<BFight> = new Vector.<BFight>();
 
   /** 名字 */
   public function set name(value:String):void {
@@ -198,6 +201,16 @@ public class BLoginInit extends Bean {
     return this._guildMails;
   }
 
+  /** 战斗日志 */
+  public function set fightHistory(value:Vector.<BFight>):void {
+    this._fightHistory = value;
+  }
+
+  /** 战斗日志 */
+  public function get fightHistory():Vector.<BFight> {
+    return this._fightHistory;
+  }
+
   override public function write(_buf:ByteArray): void {
         writeString(_buf, this._name);
     writeInt(_buf, this._values.length);
@@ -240,6 +253,10 @@ public class BLoginInit extends Bean {
     writeInt(_buf, this._guildMails.length);
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._guildMails.length; ++i_am_tmp_i) {
         _guildMails[i_am_tmp_i].write(_buf);
+    }
+    writeInt(_buf, this._fightHistory.length);
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._fightHistory.length; ++i_am_tmp_i) {
+        _fightHistory[i_am_tmp_i].write(_buf);
     }
   }
 
@@ -295,6 +312,11 @@ public class BLoginInit extends Bean {
     this._guildMails = new Vector.<BMailGuild>();
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
         this._guildMails[i_am_tmp_i] = readBeanInList(_buf, BMailGuild) as BMailGuild;
+    }
+    size52413035 = readInt(_buf);
+    this._fightHistory = new Vector.<BFight>();
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
+        this._fightHistory[i_am_tmp_i] = readBeanInList(_buf, BFight) as BFight;
     }
   }
 }
