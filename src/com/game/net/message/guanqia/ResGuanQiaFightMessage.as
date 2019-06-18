@@ -9,15 +9,15 @@ import engine.base.data.ByteArray;
  * 闯关
  */
 public class ResGuanQiaFightMessage extends Message {
-  /** 关卡ID,BLoginInit.guanQiaID需要做同步更新,如果说是新的关卡并且取胜的话 */
+  /** 已通关关卡ID,BLoginInit.guanQiaID需要做同步更新,如果说是新的关卡并且取胜的话 */
   private var _guanQiaID:int;
 
-  /** 关卡ID,BLoginInit.guanQiaID需要做同步更新,如果说是新的关卡并且取胜的话 */
+  /** 已通关关卡ID,BLoginInit.guanQiaID需要做同步更新,如果说是新的关卡并且取胜的话 */
   public function set guanQiaID(value:int):void {
     this._guanQiaID = value;
   }
 
-  /** 关卡ID,BLoginInit.guanQiaID需要做同步更新,如果说是新的关卡并且取胜的话 */
+  /** 已通关关卡ID,BLoginInit.guanQiaID需要做同步更新,如果说是新的关卡并且取胜的话 */
   public function get guanQiaID():int {
     return this._guanQiaID;
   }

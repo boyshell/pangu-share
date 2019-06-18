@@ -40,7 +40,7 @@ public class BLoginInit extends Bean {
   private var _gambling:BGambling;
   /** 属性列表 */
   private var _attributes:Vector.<int> = new Vector.<int>();
-  /** 已通关关卡ID */
+  /** 可挑战关卡ID */
   private var _guanQiaID:int;
   /** 个人邮件 */
   private var _personalMails:Vector.<BMailPersonalGroup> = new Vector.<BMailPersonalGroup>();
@@ -161,12 +161,12 @@ public class BLoginInit extends Bean {
     return this._attributes;
   }
 
-  /** 已通关关卡ID */
+  /** 可挑战关卡ID */
   public function set guanQiaID(value:int):void {
     this._guanQiaID = value;
   }
 
-  /** 已通关关卡ID */
+  /** 可挑战关卡ID */
   public function get guanQiaID():int {
     return this._guanQiaID;
   }
