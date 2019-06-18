@@ -12,7 +12,7 @@ public class Q_guan_qia extends Bean {
     private var _q_id:int;
     /** 章节ID */
     private var _q_chapter:int;
-    /** 铜币产量 */
+    /** 铜币 */
     private var _q_copper:int;
     /** 资源产量 */
     private var _q_resource:int;
