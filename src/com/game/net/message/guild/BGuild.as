@@ -26,6 +26,10 @@ public class BGuild extends Bean {
   private var _demiseTime:int;
   /** 值 */
   private var _values:Vector.<int> = new Vector.<int>();
+  /** 等级 */
+  private var _level:int;
+  /** 经验 */
+  private var _exp:int;
 
   /** 唯一ID */
   public function set uid(value:long):void {
@@ -107,6 +111,26 @@ public class BGuild extends Bean {
     return this._values;
   }
 
+  /** 等级 */
+  public function set level(value:int):void {
+    this._level = value;
+  }
+
+  /** 等级 */
+  public function get level():int {
+    return this._level;
+  }
+
+  /** 经验 */
+  public function set exp(value:int):void {
+    this._exp = value;
+  }
+
+  /** 经验 */
+  public function get exp():int {
+    return this._exp;
+  }
+
   override public function write(_buf:ByteArray): void {
         writeLong(_buf, this._uid);
         writeString(_buf, this._name);
@@ -128,6 +152,8 @@ public class BGuild extends Bean {
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._values.length; ++i_am_tmp_i) {
         writeInt(_buf, _values[i_am_tmp_i]);
     }
+        writeInt(_buf, this._level);
+        writeInt(_buf, this._exp);
   }
 
   override public function read(_buf:ByteArray): void {
@@ -156,6 +182,8 @@ public class BGuild extends Bean {
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
         this._values[i_am_tmp_i] = readInt(_buf);
     }
+        this._level = readInt(_buf);
+        this._exp = readInt(_buf);
   }
 }
 }

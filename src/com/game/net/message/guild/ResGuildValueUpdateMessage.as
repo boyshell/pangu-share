@@ -9,17 +9,17 @@ import engine.base.data.ByteArray;
  * 帮会值更新
  */
 public class ResGuildValueUpdateMessage extends Message {
-  /** 类型[1:经验] */
+  /** 类型 */
   private var _type:int;
   /** 值 */
   private var _value:int;
 
-  /** 类型[1:经验] */
+  /** 类型 */
   public function set type(value:int):void {
     this._type = value;
   }
 
-  /** 类型[1:经验] */
+  /** 类型 */
   public function get type():int {
     return this._type;
   }
