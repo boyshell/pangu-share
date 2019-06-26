@@ -12,10 +12,13 @@ public class Q_guild_level extends Bean {
     private var _q_level:int;
     /** 人数 */
     private var _q_capacity:int;
+    /** 升级所需经验 */
+    private var _q_exp:int;
 
     override public function read(_buf:ByteArray): void {
         this._q_level = readInt(_buf);
         this._q_capacity = readInt(_buf);
+        this._q_exp = readInt(_buf);
     }
 
     public function get q_level():int {
@@ -23,6 +26,9 @@ public class Q_guild_level extends Bean {
     }
     public function get q_capacity():int {
         return _q_capacity;
+    }
+    public function get q_exp():int {
+        return _q_exp;
     }
 }
 }

@@ -22,6 +22,10 @@ public class BGuild extends Bean {
   private var _applicant:Vector.<BGuildUser> = new Vector.<BGuildUser>();
   /** 帮会受邀者 */
   private var _invitee:Vector.<BGuildUser> = new Vector.<BGuildUser>();
+  /** 禅让到期时间 */
+  private var _demiseTime:int;
+  /** 值 */
+  private var _values:Vector.<int> = new Vector.<int>();
 
   /** 唯一ID */
   public function set uid(value:long):void {
@@ -83,6 +87,26 @@ public class BGuild extends Bean {
     return this._invitee;
   }
 
+  /** 禅让到期时间 */
+  public function set demiseTime(value:int):void {
+    this._demiseTime = value;
+  }
+
+  /** 禅让到期时间 */
+  public function get demiseTime():int {
+    return this._demiseTime;
+  }
+
+  /** 值 */
+  public function set values(value:Vector.<int>):void {
+    this._values = value;
+  }
+
+  /** 值 */
+  public function get values():Vector.<int> {
+    return this._values;
+  }
+
   override public function write(_buf:ByteArray): void {
         writeLong(_buf, this._uid);
         writeString(_buf, this._name);
@@ -98,6 +122,11 @@ public class BGuild extends Bean {
     writeInt(_buf, this._invitee.length);
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._invitee.length; ++i_am_tmp_i) {
         _invitee[i_am_tmp_i].write(_buf);
+    }
+        writeInt(_buf, this._demiseTime);
+    writeInt(_buf, this._values.length);
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._values.length; ++i_am_tmp_i) {
+        writeInt(_buf, _values[i_am_tmp_i]);
     }
   }
 
@@ -120,6 +149,12 @@ public class BGuild extends Bean {
     this._invitee = new Vector.<BGuildUser>();
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
         this._invitee[i_am_tmp_i] = readBeanInList(_buf, BGuildUser) as BGuildUser;
+    }
+        this._demiseTime = readInt(_buf);
+    size52413035 = readInt(_buf);
+    this._values = new Vector.<int>();
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
+        this._values[i_am_tmp_i] = readInt(_buf);
     }
   }
 }

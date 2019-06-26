@@ -9,12 +9,26 @@ import engine.base.data.ByteArray;
  * 禅让
  */
 public class ReqGuildDemiseMessage extends Message {
+  /** 成员唯一ID */
+  private var _memberUID:long;
+
+  /** 成员唯一ID */
+  public function set memberUID(value:long):void {
+    this._memberUID = value;
+  }
+
+  /** 成员唯一ID */
+  public function get memberUID():long {
+    return this._memberUID;
+  }
 
   override public function write(_buf:ByteArray): void {
+        writeLong(_buf, this._memberUID);
   }
 
   override public function read(_buf:ByteArray): void {
     var size52413035:int;
+        this._memberUID = readLong(_buf);
   }
 
   override public function getId(): int {

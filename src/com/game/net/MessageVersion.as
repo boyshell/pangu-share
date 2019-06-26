@@ -2,6 +2,6 @@ package com.game.net {
 
 /** Created by FreeMarker. DO NOT EDIT!!! */
 public class MessageVersion {
-  public static const VERSION:String = "a6c95a5ed25391e32a62c9b9741ed2c2";
+  public static const VERSION:String = "cb3011e0a38add0b14951d6921f14eee";
 }
 }

@@ -50,6 +50,8 @@ public class BLoginInit extends Bean {
   private var _guildMails:Vector.<BMailGuild> = new Vector.<BMailGuild>();
   /** 战斗日志 */
   private var _fightHistory:Vector.<BFight> = new Vector.<BFight>();
+  /** 可申请帮会时间 */
+  private var _guildApplyTime:int;
 
   /** 名字 */
   public function set name(value:String):void {
@@ -211,6 +213,16 @@ public class BLoginInit extends Bean {
     return this._fightHistory;
   }
 
+  /** 可申请帮会时间 */
+  public function set guildApplyTime(value:int):void {
+    this._guildApplyTime = value;
+  }
+
+  /** 可申请帮会时间 */
+  public function get guildApplyTime():int {
+    return this._guildApplyTime;
+  }
+
   override public function write(_buf:ByteArray): void {
         writeString(_buf, this._name);
     writeInt(_buf, this._values.length);
@@ -258,6 +270,7 @@ public class BLoginInit extends Bean {
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._fightHistory.length; ++i_am_tmp_i) {
         _fightHistory[i_am_tmp_i].write(_buf);
     }
+        writeInt(_buf, this._guildApplyTime);
   }
 
   override public function read(_buf:ByteArray): void {
@@ -318,6 +331,7 @@ public class BLoginInit extends Bean {
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
         this._fightHistory[i_am_tmp_i] = readBeanInList(_buf, BFight) as BFight;
     }
+        this._guildApplyTime = readInt(_buf);
   }
 }
 }
