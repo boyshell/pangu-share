@@ -18,6 +18,8 @@ import engine.base.data.ByteArray;
  * 初始化数据
  */
 public class BLoginInit extends Bean {
+  /** 唯一ID */
+  private var _uid:long;
   /** 名字 */
   private var _name:String;
   /** 值列表 */
@@ -52,6 +54,16 @@ public class BLoginInit extends Bean {
   private var _fightHistory:Vector.<BFight> = new Vector.<BFight>();
   /** 可申请帮会时间 */
   private var _guildApplyTime:int;
+
+  /** 唯一ID */
+  public function set uid(value:long):void {
+    this._uid = value;
+  }
+
+  /** 唯一ID */
+  public function get uid():long {
+    return this._uid;
+  }
 
   /** 名字 */
   public function set name(value:String):void {
@@ -224,6 +236,7 @@ public class BLoginInit extends Bean {
   }
 
   override public function write(_buf:ByteArray): void {
+        writeLong(_buf, this._uid);
         writeString(_buf, this._name);
     writeInt(_buf, this._values.length);
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._values.length; ++i_am_tmp_i) {
@@ -275,6 +288,7 @@ public class BLoginInit extends Bean {
 
   override public function read(_buf:ByteArray): void {
     var size52413035:int;
+        this._uid = readLong(_buf);
         this._name = readString(_buf);
     size52413035 = readInt(_buf);
     this._values = new Vector.<int>();
