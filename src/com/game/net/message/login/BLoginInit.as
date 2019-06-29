@@ -5,6 +5,7 @@ import com.game.net.message.gambling.BGambling;
 import com.game.net.message.mail.BMailPersonalGroup;
 import com.game.net.message.mail.BMailSystem;
 import com.game.net.message.mail.BMailGuild;
+import com.game.net.message.shop.BShop;
 import com.game.net.message.fight.BFight;
 import com.game.net.message.hero.BHero;
 import com.game.net.message.team.BTeam;
@@ -54,6 +55,8 @@ public class BLoginInit extends Bean {
   private var _fightHistory:Vector.<BFight> = new Vector.<BFight>();
   /** 可申请帮会时间 */
   private var _guildApplyTime:int;
+  /** 商店信息 */
+  private var _shop:BShop;
 
   /** 唯一ID */
   public function set uid(value:long):void {
@@ -235,6 +238,16 @@ public class BLoginInit extends Bean {
     return this._guildApplyTime;
   }
 
+  /** 商店信息 */
+  public function set shop(value:BShop):void {
+    this._shop = value;
+  }
+
+  /** 商店信息 */
+  public function get shop():BShop {
+    return this._shop;
+  }
+
   override public function write(_buf:ByteArray): void {
         writeLong(_buf, this._uid);
         writeString(_buf, this._name);
@@ -284,6 +297,7 @@ public class BLoginInit extends Bean {
         _fightHistory[i_am_tmp_i].write(_buf);
     }
         writeInt(_buf, this._guildApplyTime);
+        writeBean(_buf, this._shop);
   }
 
   override public function read(_buf:ByteArray): void {
@@ -346,6 +360,7 @@ public class BLoginInit extends Bean {
         this._fightHistory[i_am_tmp_i] = readBeanInList(_buf, BFight) as BFight;
     }
         this._guildApplyTime = readInt(_buf);
+        this._shop = readBean(_buf, BShop) as BShop;
   }
 }
 }
