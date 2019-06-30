@@ -6,6 +6,7 @@ import com.game.net.message.mail.BMailPersonalGroup;
 import com.game.net.message.mail.BMailSystem;
 import com.game.net.message.mail.BMailGuild;
 import com.game.net.message.shop.BShop;
+import com.game.net.message.sign.BSign;
 import com.game.net.message.fight.BFight;
 import com.game.net.message.hero.BHero;
 import com.game.net.message.team.BTeam;
@@ -57,6 +58,12 @@ public class BLoginInit extends Bean {
   private var _guildApplyTime:int;
   /** 商店信息 */
   private var _shop:BShop;
+  /** 月卡到期时间 */
+  private var _salaryTime:int;
+  /** 月卡上次领取的时间 */
+  private var _salaryPaidTime:int;
+  /** 签到信息 */
+  private var _sign:BSign;
 
   /** 唯一ID */
   public function set uid(value:long):void {
@@ -248,6 +255,36 @@ public class BLoginInit extends Bean {
     return this._shop;
   }
 
+  /** 月卡到期时间 */
+  public function set salaryTime(value:int):void {
+    this._salaryTime = value;
+  }
+
+  /** 月卡到期时间 */
+  public function get salaryTime():int {
+    return this._salaryTime;
+  }
+
+  /** 月卡上次领取的时间 */
+  public function set salaryPaidTime(value:int):void {
+    this._salaryPaidTime = value;
+  }
+
+  /** 月卡上次领取的时间 */
+  public function get salaryPaidTime():int {
+    return this._salaryPaidTime;
+  }
+
+  /** 签到信息 */
+  public function set sign(value:BSign):void {
+    this._sign = value;
+  }
+
+  /** 签到信息 */
+  public function get sign():BSign {
+    return this._sign;
+  }
+
   override public function write(_buf:ByteArray): void {
         writeLong(_buf, this._uid);
         writeString(_buf, this._name);
@@ -298,6 +335,9 @@ public class BLoginInit extends Bean {
     }
         writeInt(_buf, this._guildApplyTime);
         writeBean(_buf, this._shop);
+        writeInt(_buf, this._salaryTime);
+        writeInt(_buf, this._salaryPaidTime);
+        writeBean(_buf, this._sign);
   }
 
   override public function read(_buf:ByteArray): void {
@@ -361,6 +401,9 @@ public class BLoginInit extends Bean {
     }
         this._guildApplyTime = readInt(_buf);
         this._shop = readBean(_buf, BShop) as BShop;
+        this._salaryTime = readInt(_buf);
+        this._salaryPaidTime = readInt(_buf);
+        this._sign = readBean(_buf, BSign) as BSign;
   }
 }
 }

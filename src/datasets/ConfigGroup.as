@@ -22,12 +22,15 @@ import datasets.container.Q_hero_levelContainer;
 import datasets.container.Q_hero_paramContainer;
 import datasets.container.Q_hero_starContainer;
 import datasets.container.Q_hero_comboContainer;
+import datasets.container.Q_signContainer;
+import datasets.container.Q_itemContainer;
+import datasets.container.Q_item_paramContainer;
 import datasets.container.Q_team_paramContainer;
 import datasets.container.Q_team_costContainer;
 
 /** Created by FreeMarker. DO NOT EDIT!!! */
 public class ConfigGroup {
-    public static const CODE_VERSION:String = "7ebe8df5026f52632283e197a4441395";
+    public static const CODE_VERSION:String = "c8abaf7c21d37176ab807b9fd2bb633d";
     public var DATA_VERSION:int;
 
     public function ConfigGroup(buf:ByteArray) {
@@ -57,6 +60,9 @@ public class ConfigGroup {
         Q_hero_paramContainer.SetData(buf);
         Q_hero_starContainer.SetData(buf);
         Q_hero_comboContainer.SetData(buf);
+        Q_signContainer.SetData(buf);
+        Q_itemContainer.SetData(buf);
+        Q_item_paramContainer.SetData(buf);
         Q_team_paramContainer.SetData(buf);
         Q_team_costContainer.SetData(buf);
     }
