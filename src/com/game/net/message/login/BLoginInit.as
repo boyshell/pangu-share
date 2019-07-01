@@ -7,7 +7,7 @@ import com.game.net.message.mail.BMailSystem;
 import com.game.net.message.mail.BMailGuild;
 import com.game.net.message.shop.BShop;
 import com.game.net.message.sign.BSign;
-import com.game.net.message.fight.BFight;
+import com.game.net.message.train.BTrain;
 import com.game.net.message.hero.BHero;
 import com.game.net.message.team.BTeam;
 import com.game.net.message.building.BBuilding;
@@ -52,8 +52,6 @@ public class BLoginInit extends Bean {
   private var _systemMails:Vector.<BMailSystem> = new Vector.<BMailSystem>();
   /** 帮会邮件 */
   private var _guildMails:Vector.<BMailGuild> = new Vector.<BMailGuild>();
-  /** 战斗日志 */
-  private var _fightHistory:Vector.<BFight> = new Vector.<BFight>();
   /** 可申请帮会时间 */
   private var _guildApplyTime:int;
   /** 商店信息 */
@@ -64,6 +62,8 @@ public class BLoginInit extends Bean {
   private var _salaryPaidTime:int;
   /** 签到信息 */
   private var _sign:BSign;
+  /** 演武 */
+  private var _train:BTrain;
 
   /** 唯一ID */
   public function set uid(value:long):void {
@@ -225,16 +225,6 @@ public class BLoginInit extends Bean {
     return this._guildMails;
   }
 
-  /** 战斗日志 */
-  public function set fightHistory(value:Vector.<BFight>):void {
-    this._fightHistory = value;
-  }
-
-  /** 战斗日志 */
-  public function get fightHistory():Vector.<BFight> {
-    return this._fightHistory;
-  }
-
   /** 可申请帮会时间 */
   public function set guildApplyTime(value:int):void {
     this._guildApplyTime = value;
@@ -285,6 +275,16 @@ public class BLoginInit extends Bean {
     return this._sign;
   }
 
+  /** 演武 */
+  public function set train(value:BTrain):void {
+    this._train = value;
+  }
+
+  /** 演武 */
+  public function get train():BTrain {
+    return this._train;
+  }
+
   override public function write(_buf:ByteArray): void {
         writeLong(_buf, this._uid);
         writeString(_buf, this._name);
@@ -329,15 +329,12 @@ public class BLoginInit extends Bean {
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._guildMails.length; ++i_am_tmp_i) {
         _guildMails[i_am_tmp_i].write(_buf);
     }
-    writeInt(_buf, this._fightHistory.length);
-    for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._fightHistory.length; ++i_am_tmp_i) {
-        _fightHistory[i_am_tmp_i].write(_buf);
-    }
         writeInt(_buf, this._guildApplyTime);
         writeBean(_buf, this._shop);
         writeInt(_buf, this._salaryTime);
         writeInt(_buf, this._salaryPaidTime);
         writeBean(_buf, this._sign);
+        writeBean(_buf, this._train);
   }
 
   override public function read(_buf:ByteArray): void {
@@ -394,16 +391,12 @@ public class BLoginInit extends Bean {
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
         this._guildMails[i_am_tmp_i] = readBeanInList(_buf, BMailGuild) as BMailGuild;
     }
-    size52413035 = readInt(_buf);
-    this._fightHistory = new Vector.<BFight>();
-    for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
-        this._fightHistory[i_am_tmp_i] = readBeanInList(_buf, BFight) as BFight;
-    }
         this._guildApplyTime = readInt(_buf);
         this._shop = readBean(_buf, BShop) as BShop;
         this._salaryTime = readInt(_buf);
         this._salaryPaidTime = readInt(_buf);
         this._sign = readBean(_buf, BSign) as BSign;
+        this._train = readBean(_buf, BTrain) as BTrain;
   }
 }
 }

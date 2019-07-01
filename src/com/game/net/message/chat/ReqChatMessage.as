@@ -13,6 +13,8 @@ public class ReqChatMessage extends Message {
   private var _type:int;
   /** 文字 */
   private var _txt:String;
+  /** 战报类型[1:关卡][2:演武] */
+  private var _fightType:int;
   /** 战报唯一ID */
   private var _fightUID:int;
   /** 队伍序号 */
@@ -38,6 +40,16 @@ public class ReqChatMessage extends Message {
     return this._txt;
   }
 
+  /** 战报类型[1:关卡][2:演武] */
+  public function set fightType(value:int):void {
+    this._fightType = value;
+  }
+
+  /** 战报类型[1:关卡][2:演武] */
+  public function get fightType():int {
+    return this._fightType;
+  }
+
   /** 战报唯一ID */
   public function set fightUID(value:int):void {
     this._fightUID = value;
@@ -61,6 +73,7 @@ public class ReqChatMessage extends Message {
   override public function write(_buf:ByteArray): void {
         writeInt(_buf, this._type);
         writeString(_buf, this._txt);
+        writeInt(_buf, this._fightType);
         writeInt(_buf, this._fightUID);
         writeInt(_buf, this._teamIndex);
   }
@@ -69,6 +82,7 @@ public class ReqChatMessage extends Message {
     var size52413035:int;
         this._type = readInt(_buf);
         this._txt = readString(_buf);
+        this._fightType = readInt(_buf);
         this._fightUID = readInt(_buf);
         this._teamIndex = readInt(_buf);
   }

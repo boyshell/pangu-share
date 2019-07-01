@@ -3,6 +3,7 @@ package datasets {
 import engine.base.data.ByteArray;
 import engine.base.data.ByteBufferUtil;
 import datasets.container.Q_guan_qiaContainer;
+import datasets.container.Q_chapterContainer;
 import datasets.container.Q_bing_zhongContainer;
 import datasets.container.Q_bing_zhong_xiContainer;
 import datasets.container.Q_guild_levelContainer;
@@ -22,6 +23,8 @@ import datasets.container.Q_hero_levelContainer;
 import datasets.container.Q_hero_paramContainer;
 import datasets.container.Q_hero_starContainer;
 import datasets.container.Q_hero_comboContainer;
+import datasets.container.Q_trainContainer;
+import datasets.container.Q_train_paramContainer;
 import datasets.container.Q_signContainer;
 import datasets.container.Q_itemContainer;
 import datasets.container.Q_item_paramContainer;
@@ -30,7 +33,7 @@ import datasets.container.Q_team_costContainer;
 
 /** Created by FreeMarker. DO NOT EDIT!!! */
 public class ConfigGroup {
-    public static const CODE_VERSION:String = "c8abaf7c21d37176ab807b9fd2bb633d";
+    public static const CODE_VERSION:String = "ce4c59e69afda68529d46697846d4e95";
     public var DATA_VERSION:int;
 
     public function ConfigGroup(buf:ByteArray) {
@@ -41,6 +44,7 @@ public class ConfigGroup {
         this.DATA_VERSION = ByteBufferUtil.readInt(buf);
 
         Q_guan_qiaContainer.SetData(buf);
+        Q_chapterContainer.SetData(buf);
         Q_bing_zhongContainer.SetData(buf);
         Q_bing_zhong_xiContainer.SetData(buf);
         Q_guild_levelContainer.SetData(buf);
@@ -60,6 +64,8 @@ public class ConfigGroup {
         Q_hero_paramContainer.SetData(buf);
         Q_hero_starContainer.SetData(buf);
         Q_hero_comboContainer.SetData(buf);
+        Q_trainContainer.SetData(buf);
+        Q_train_paramContainer.SetData(buf);
         Q_signContainer.SetData(buf);
         Q_itemContainer.SetData(buf);
         Q_item_paramContainer.SetData(buf);

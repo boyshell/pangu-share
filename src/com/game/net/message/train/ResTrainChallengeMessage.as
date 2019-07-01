@@ -1,4 +1,4 @@
-package com.game.net.message.user {
+package com.game.net.message.train {
 
 import com.game.net.message.fight.BFight;
 import com.net.Message;
@@ -7,18 +7,18 @@ import engine.base.data.ByteArray;
 
 /**
  * Created by FreeMarker. DO NOT EDIT!!!
- * 添加战斗记录
+ * 演武挑战
  */
-public class ResUserAddFightHistoryMessage extends Message {
-  /** 记录 */
+public class ResTrainChallengeMessage extends Message {
+  /** 战斗结果 */
   private var _fight:BFight;
 
-  /** 记录 */
+  /** 战斗结果 */
   public function set fight(value:BFight):void {
     this._fight = value;
   }
 
-  /** 记录 */
+  /** 战斗结果 */
   public function get fight():BFight {
     return this._fight;
   }
@@ -33,7 +33,7 @@ public class ResUserAddFightHistoryMessage extends Message {
   }
 
   override public function getId(): int {
-    return 438;
+    return 465;
   }
 }
 }
