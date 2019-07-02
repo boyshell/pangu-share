@@ -1,5 +1,6 @@
 package com.game.net.message.train {
 
+import com.game.net.message.train.BTrainHero;
 import com.net.Message;
 import engine.base.data.long;
 import engine.base.data.ByteArray;
@@ -11,8 +12,8 @@ import engine.base.data.ByteArray;
 public class ReqTrainChallengeMessage extends Message {
   /** 挑战序号，1开始 */
   private var _index:int;
-  /** 队伍 */
-  private var _heroUIDs:Vector.<int> = new Vector.<int>();
+  /** 预设队伍 */
+  private var _heroes:Vector.<BTrainHero> = new Vector.<BTrainHero>();
 
   /** 挑战序号，1开始 */
   public function set index(value:int):void {
@@ -24,21 +25,21 @@ public class ReqTrainChallengeMessage extends Message {
     return this._index;
   }
 
-  /** 队伍 */
-  public function set heroUIDs(value:Vector.<int>):void {
-    this._heroUIDs = value;
+  /** 预设队伍 */
+  public function set heroes(value:Vector.<BTrainHero>):void {
+    this._heroes = value;
   }
 
-  /** 队伍 */
-  public function get heroUIDs():Vector.<int> {
-    return this._heroUIDs;
+  /** 预设队伍 */
+  public function get heroes():Vector.<BTrainHero> {
+    return this._heroes;
   }
 
   override public function write(_buf:ByteArray): void {
         writeInt(_buf, this._index);
-    writeInt(_buf, this._heroUIDs.length);
-    for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._heroUIDs.length; ++i_am_tmp_i) {
-        writeInt(_buf, _heroUIDs[i_am_tmp_i]);
+    writeInt(_buf, this._heroes.length);
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._heroes.length; ++i_am_tmp_i) {
+        _heroes[i_am_tmp_i].write(_buf);
     }
   }
 
@@ -46,9 +47,9 @@ public class ReqTrainChallengeMessage extends Message {
     var size52413035:int;
         this._index = readInt(_buf);
     size52413035 = readInt(_buf);
-    this._heroUIDs = new Vector.<int>();
+    this._heroes = new Vector.<BTrainHero>();
     for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
-        this._heroUIDs[i_am_tmp_i] = readInt(_buf);
+        this._heroes[i_am_tmp_i] = readBeanInList(_buf, BTrainHero) as BTrainHero;
     }
   }
 
