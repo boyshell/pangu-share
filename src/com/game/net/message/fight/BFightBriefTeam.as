@@ -10,6 +10,8 @@ import engine.base.data.ByteArray;
  * 队伍简介
  */
 public class BFightBriefTeam extends Bean {
+  /** 名字 */
+  private var _name:String;
   /** 武将ID */
   private var _heroID:int;
   /** 星 */
@@ -24,6 +26,16 @@ public class BFightBriefTeam extends Bean {
   private var _sBingLi:int;
   /** 结束兵力 */
   private var _eBingLi:int;
+
+  /** 名字 */
+  public function set name(value:String):void {
+    this._name = value;
+  }
+
+  /** 名字 */
+  public function get name():String {
+    return this._name;
+  }
 
   /** 武将ID */
   public function set heroID(value:int):void {
@@ -96,6 +108,7 @@ public class BFightBriefTeam extends Bean {
   }
 
   override public function write(_buf:ByteArray): void {
+        writeString(_buf, this._name);
         writeInt(_buf, this._heroID);
         writeInt(_buf, this._star);
         writeInt(_buf, this._level);
@@ -107,6 +120,7 @@ public class BFightBriefTeam extends Bean {
 
   override public function read(_buf:ByteArray): void {
     var size52413035:int;
+        this._name = readString(_buf);
         this._heroID = readInt(_buf);
         this._star = readInt(_buf);
         this._level = readInt(_buf);
