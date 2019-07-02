@@ -7,6 +7,7 @@ import com.game.net.message.mail.BMailSystem;
 import com.game.net.message.mail.BMailGuild;
 import com.game.net.message.shop.BShop;
 import com.game.net.message.sign.BSign;
+import com.game.net.message.task.BTask;
 import com.game.net.message.train.BTrain;
 import com.game.net.message.hero.BHero;
 import com.game.net.message.team.BTeam;
@@ -64,6 +65,8 @@ public class BLoginInit extends Bean {
   private var _sign:BSign;
   /** 演武 */
   private var _train:BTrain;
+  /** 任务 */
+  private var _tasks:Vector.<BTask> = new Vector.<BTask>();
 
   /** 唯一ID */
   public function set uid(value:long):void {
@@ -285,6 +288,16 @@ public class BLoginInit extends Bean {
     return this._train;
   }
 
+  /** 任务 */
+  public function set tasks(value:Vector.<BTask>):void {
+    this._tasks = value;
+  }
+
+  /** 任务 */
+  public function get tasks():Vector.<BTask> {
+    return this._tasks;
+  }
+
   override public function write(_buf:ByteArray): void {
         writeLong(_buf, this._uid);
         writeString(_buf, this._name);
@@ -335,6 +348,10 @@ public class BLoginInit extends Bean {
         writeInt(_buf, this._salaryPaidTime);
         writeBean(_buf, this._sign);
         writeBean(_buf, this._train);
+    writeInt(_buf, this._tasks.length);
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < this._tasks.length; ++i_am_tmp_i) {
+        _tasks[i_am_tmp_i].write(_buf);
+    }
   }
 
   override public function read(_buf:ByteArray): void {
@@ -397,6 +414,11 @@ public class BLoginInit extends Bean {
         this._salaryPaidTime = readInt(_buf);
         this._sign = readBean(_buf, BSign) as BSign;
         this._train = readBean(_buf, BTrain) as BTrain;
+    size52413035 = readInt(_buf);
+    this._tasks = new Vector.<BTask>();
+    for (var i_am_tmp_i:int = 0; i_am_tmp_i < size52413035; ++i_am_tmp_i) {
+        this._tasks[i_am_tmp_i] = readBeanInList(_buf, BTask) as BTask;
+    }
   }
 }
 }

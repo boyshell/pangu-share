@@ -2,6 +2,7 @@ package datasets {
 
 import engine.base.data.ByteArray;
 import engine.base.data.ByteBufferUtil;
+import datasets.container.Q_taskContainer;
 import datasets.container.Q_guan_qiaContainer;
 import datasets.container.Q_chapterContainer;
 import datasets.container.Q_bing_zhongContainer;
@@ -33,7 +34,7 @@ import datasets.container.Q_team_costContainer;
 
 /** Created by FreeMarker. DO NOT EDIT!!! */
 public class ConfigGroup {
-    public static const CODE_VERSION:String = "ce4c59e69afda68529d46697846d4e95";
+    public static const CODE_VERSION:String = "5c1c9785035bd145d5c10dc67c8defad";
     public var DATA_VERSION:int;
 
     public function ConfigGroup(buf:ByteArray) {
@@ -43,6 +44,7 @@ public class ConfigGroup {
         }
         this.DATA_VERSION = ByteBufferUtil.readInt(buf);
 
+        Q_taskContainer.SetData(buf);
         Q_guan_qiaContainer.SetData(buf);
         Q_chapterContainer.SetData(buf);
         Q_bing_zhongContainer.SetData(buf);
