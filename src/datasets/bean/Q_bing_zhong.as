@@ -12,8 +12,6 @@ public class Q_bing_zhong extends Bean {
     private var _q_bing_zhong:int;
     /** 兵种名字 */
     private var _q_name:String;
-    /** 兵种图标 */
-    private var _q_icon:String;
     /** 兵种系列(兵种加成) */
     private var _q_same_xi:int;
     /** 兵种系列(技能学习) */
@@ -26,7 +24,6 @@ public class Q_bing_zhong extends Bean {
     override public function read(_buf:ByteArray): void {
         this._q_bing_zhong = readInt(_buf);
         this._q_name = readString(_buf);
-        this._q_icon = readString(_buf);
         this._q_same_xi = readInt(_buf);
         this._q_skill_xi = readString(_buf);
         this._q_skills = readString(_buf);
@@ -38,9 +35,6 @@ public class Q_bing_zhong extends Bean {
     }
     public function get q_name():String {
         return _q_name;
-    }
-    public function get q_icon():String {
-        return _q_icon;
     }
     public function get q_same_xi():int {
         return _q_same_xi;
