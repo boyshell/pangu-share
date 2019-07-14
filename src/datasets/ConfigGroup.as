@@ -35,7 +35,7 @@ import datasets.container.Q_team_costContainer;
 
 /** Created by FreeMarker. DO NOT EDIT!!! */
 public class ConfigGroup {
-    public static const CODE_VERSION:String = "2a618391fb711e55d50d939af450a1df";
+    public static const CODE_VERSION:String = "c9fd77b2bc5ee8f8056f50f44acd7c95";
     public var DATA_VERSION:int;
 
     public function ConfigGroup(buf:ByteArray) {
