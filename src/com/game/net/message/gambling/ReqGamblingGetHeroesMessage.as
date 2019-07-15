@@ -6,33 +6,33 @@ import engine.base.data.ByteArray;
 
 /**
  * Created by FreeMarker. DO NOT EDIT!!!
- * 移除卡包
+ * 获取卡包武将
  */
-public class ResGamblingHouseRemoveMessage extends Message {
+public class ReqGamblingGetHeroesMessage extends Message {
   /** 卡包ID */
-  private var _id:int;
+  private var _houseID:int;
 
   /** 卡包ID */
-  public function set id(value:int):void {
-    this._id = value;
+  public function set houseID(value:int):void {
+    this._houseID = value;
   }
 
   /** 卡包ID */
-  public function get id():int {
-    return this._id;
+  public function get houseID():int {
+    return this._houseID;
   }
 
   override public function write(_buf:ByteArray): void {
-        writeInt(_buf, this._id);
+        writeInt(_buf, this._houseID);
   }
 
   override public function read(_buf:ByteArray): void {
     var size52413035:int;
-        this._id = readInt(_buf);
+        this._houseID = readInt(_buf);
   }
 
   override public function getId(): int {
-    return 450;
+    return 475;
   }
 }
 }

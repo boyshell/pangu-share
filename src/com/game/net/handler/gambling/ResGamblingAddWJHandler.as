@@ -1,0 +1,15 @@
+package com.game.net.handler.gambling {
+
+import com.Mgr;
+import com.game.net.message.gambling.ResGamblingAddWJMessage;
+import com.net.MNetHandler;
+
+public class ResGamblingAddWJHandler extends MNetHandler {
+
+    // 添加/更新卡包
+    override public function action(): void{
+        var msg:ResGamblingAddWJMessage = ResGamblingAddWJMessage(this.message);
+        // todo
+    }
+}
+}

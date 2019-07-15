@@ -6,9 +6,9 @@ import engine.base.data.ByteArray;
 
 /**
  * Created by FreeMarker. DO NOT EDIT!!!
- * 招募
+ * 获取卡包武将
  */
-public class ResGamblingMessage extends Message {
+public class ResGamblingGetHeroesMessage extends Message {
   /** 武将卡ID */
   private var _heroIDs:Vector.<int> = new Vector.<int>();
 
@@ -39,7 +39,7 @@ public class ResGamblingMessage extends Message {
   }
 
   override public function getId(): int {
-    return 360;
+    return 476;
   }
 }
 }
