@@ -28,8 +28,6 @@ public class Q_gambling_house extends Bean {
     private var _q_free_times:Boolean;
     /** 是否固定显示 */
     private var _q_static:Boolean;
-    /** 星级权重[[星,权重][星,权重]…] */
-    private var _q_star_weight:String;
 
     override public function read(_buf:ByteArray): void {
         this._q_id = readInt(_buf);
@@ -42,7 +40,6 @@ public class Q_gambling_house extends Bean {
         this._q_price = readString(_buf);
         this._q_free_times = readBoolean(_buf);
         this._q_static = readBoolean(_buf);
-        this._q_star_weight = readString(_buf);
     }
 
     public function get q_id():int {
@@ -74,9 +71,6 @@ public class Q_gambling_house extends Bean {
     }
     public function get q_static():Boolean {
         return _q_static;
-    }
-    public function get q_star_weight():String {
-        return _q_star_weight;
     }
 }
 }

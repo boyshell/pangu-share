@@ -17,6 +17,10 @@ public class BGamblingTB extends Bean {
   private var _timesMax:int;
   /** 剩余次数 */
   private var _times:int;
+  /** 最低星级 */
+  private var _starMin:int;
+  /** 最高星级 */
+  private var _starMax:int;
 
   /** 卡包ID */
   public function set id(value:int):void {
@@ -58,11 +62,33 @@ public class BGamblingTB extends Bean {
     return this._times;
   }
 
+  /** 最低星级 */
+  public function set starMin(value:int):void {
+    this._starMin = value;
+  }
+
+  /** 最低星级 */
+  public function get starMin():int {
+    return this._starMin;
+  }
+
+  /** 最高星级 */
+  public function set starMax(value:int):void {
+    this._starMax = value;
+  }
+
+  /** 最高星级 */
+  public function get starMax():int {
+    return this._starMax;
+  }
+
   override public function write(_buf:ByteArray): void {
         writeInt(_buf, this._id);
         writeBoolean(_buf, this._active);
         writeInt(_buf, this._timesMax);
         writeInt(_buf, this._times);
+        writeInt(_buf, this._starMin);
+        writeInt(_buf, this._starMax);
   }
 
   override public function read(_buf:ByteArray): void {
@@ -71,6 +97,8 @@ public class BGamblingTB extends Bean {
         this._active = readBoolean(_buf);
         this._timesMax = readInt(_buf);
         this._times = readInt(_buf);
+        this._starMin = readInt(_buf);
+        this._starMax = readInt(_buf);
   }
 }
 }
