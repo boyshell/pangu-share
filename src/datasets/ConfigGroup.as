@@ -27,7 +27,6 @@ import datasets.container.Q_hero_starContainer;
 import datasets.container.Q_hero_comboContainer;
 import datasets.container.Q_trainContainer;
 import datasets.container.Q_train_paramContainer;
-import datasets.container.Q_signContainer;
 import datasets.container.Q_itemContainer;
 import datasets.container.Q_item_paramContainer;
 import datasets.container.Q_team_paramContainer;
@@ -35,7 +34,7 @@ import datasets.container.Q_team_costContainer;
 
 /** Created by FreeMarker. DO NOT EDIT!!! */
 public class ConfigGroup {
-    public static const CODE_VERSION:String = "0aaf7c0027274c8684b0b9a84482cc1d";
+    public static const CODE_VERSION:String = "995aa44e44e39e0f843b4744d76bfe5d";
     public var DATA_VERSION:int;
 
     public function ConfigGroup(buf:ByteArray) {
@@ -70,7 +69,6 @@ public class ConfigGroup {
         Q_hero_comboContainer.SetData(buf);
         Q_trainContainer.SetData(buf);
         Q_train_paramContainer.SetData(buf);
-        Q_signContainer.SetData(buf);
         Q_itemContainer.SetData(buf);
         Q_item_paramContainer.SetData(buf);
         Q_team_paramContainer.SetData(buf);
